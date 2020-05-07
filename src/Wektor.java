@@ -5,7 +5,7 @@ import java.lang.IllegalArgumentException;
 
 public class Wektor
 {
-    private double[] wektor; //deklaracja prywatnej tablicy jednowymiarowej wektor
+    public double[] wektor; //deklaracja prywatnej tablicy jednowymiarowej wektor
 
     public double[] getWektor() // zwraca tablicę wektor
     {
@@ -20,7 +20,6 @@ public class Wektor
     public Wektor(double... wektor) // konstuktor obiektu Wektor
     {
         this.wektor = wektor;
-        this.
     }
 
     static Wektor wektor(double... wektorparametr) // deklaracja metody Wektor(), która zwraca tablicę w typie danych double
@@ -29,13 +28,21 @@ public class Wektor
         return wektor; // zwraca parametry w obiekcie Wektor
     }
 
+    @Override
+    public String toString() {
+        return "Wektor{" +
+                "wektor=" + Arrays.toString(wektor) +
+                '}';
+    }
 
     public static void main(String[] args)
     {
-        Wektor macierz1 = new Wektor(2,3,4,5,6);
-        System.out.println(macierz1.wektor[0]);
+       // Wektor wektor1 = new Wektor(2,3,4,5,6);
+      //  System.out.println(wektor1.wektor);
+        //System.out.println(wektor1.toString());
+        //System.out.println(wektor1.getWektor());
 
 
-        System.out.println(macierz1);
+        //System.out.println(wektor1);
     }
 }
