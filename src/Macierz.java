@@ -57,5 +57,6 @@ public class Macierz
 
         System.out.println(macierz1);
         //System.out.println(macierz2); // wyrzuca wyjątek
+
     }
 }
