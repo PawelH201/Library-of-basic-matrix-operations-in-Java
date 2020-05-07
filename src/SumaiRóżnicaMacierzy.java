@@ -1,6 +1,6 @@
 //Klasa potomna klasy Macierz zawierająca metody sumaMacierzy, różnica Macierzy.
 //ALERT ->>> Program jest w trakcie tworzenia(nie funkcjonuje jeszcze sprawnie)
-public class SumaRóżnicaMacierzy extends Macierz {/*
+public class SumaiRóżnicaMacierzy extends Macierz {/*
 
     double[][] wynik=null;
     double[][] tablica1=getMacierz();
