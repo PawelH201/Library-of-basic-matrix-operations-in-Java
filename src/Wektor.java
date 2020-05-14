@@ -41,12 +41,12 @@ public class Wektor
 //czesc testowa
     public static void main(String[] args)
     {
+        //utworzenie wektora
         Wektor wektor1 = new Wektor(2,3,4,5,6);
+        //sprawdzenie dzialania metod funkcji wektor
         System.out.println(wektor1.wektor);
         System.out.println(wektor1.toString());
         System.out.println(wektor1.getWektor());
-
-
         System.out.println(wektor1);
     }
 }

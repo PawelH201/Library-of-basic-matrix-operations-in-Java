@@ -39,7 +39,7 @@ class iloczynwektorowy extends Wektor{
         }
         //przypadek gdy wymiar podanych wektorow jest niepoprawny
         else {
-            throw new IllegalArgumentException("Sprawdz czy podane argumenty sa poprawne");
+            throw new IllegalArgumentException("Sprawdz czy wektory mają długość 3 i mają odpowiednie dane!");
         }
 
        }
@@ -47,9 +47,14 @@ class iloczynwektorowy extends Wektor{
 //czesc testowa programu
 
    public static void main(String args[]){
+        //utworzenie obiektow wektor
         Wektor pierwszy = new Wektor(1,2,4);
         Wektor drugi = new Wektor(1,2,3);
+        Wektor niepoprawny = new Wektor(1,2,3,4);
+        //sprawdzenie poprawnosci dzialania
         System.out.println(iloczynwektorowy(pierwszy,drugi));
+        //sprawdzenie poprawnosci wywapywania wyjatkow
+        System.out.println(iloczynwektorowy(pierwszy,niepoprawny));
     }
 
 

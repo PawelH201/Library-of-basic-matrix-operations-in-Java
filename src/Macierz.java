@@ -54,7 +54,6 @@ public class Macierz
 
         //System.out.println(macierz(new double[]{3,4.8,3.3432}, new double[]{2,4.23,-2321.32,0.43})); // wyrzuca wyjątek
         System.out.println(macierz(new double[]{3,4.8,3.3432}, new double[]{2,4.23,-2321.32}));
-
         System.out.println(macierz1);
         //System.out.println(macierz2); // wyrzuca wyjątek
 

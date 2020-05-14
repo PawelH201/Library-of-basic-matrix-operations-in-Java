@@ -1,4 +1,65 @@
-package PACKAGE_NAME;
+/**
+ * @author phulanic
+ *
+ */
 
-public class IloczynMacierzy {
+
+public class IloczynMacierzy extends Macierz {
+    Macierz Pierwszamacierz;
+    Macierz Drugamacierz;
+
+
+    static Macierz iloczynmacierzy(Macierz pierwszamacierz, Macierz drugamacierz) {
+        //wartości danych macierzy w formie tablic dwuwymiarowych
+        double[][] wartoscipierwszejmacierzy = pierwszamacierz.getMacierz();
+        double[][] wartoscidrugiejmacierzy = drugamacierz.getMacierz();
+        //tablica, w ktorej będą pojawiały się wyniki o wymiarach określonych przez wielkość macierzy
+        double[][] wynik = new double[wartoscipierwszejmacierzy.length][wartoscidrugiejmacierzy[0].length];
+
+        //sprawdzenie warunku koniecznego iloczynu macierzy
+        if (wartoscipierwszejmacierzy[0].length == wartoscidrugiejmacierzy.length
+                && wartoscipierwszejmacierzy.length == wartoscidrugiejmacierzy[0].length) {
+            //wywołanie każdego wiersza i kolumny macierzy wynik
+            for (int wiersz = 0;wiersz < wartoscipierwszejmacierzy.length; wiersz++) {
+                for (int kolumna = 0; kolumna < wartoscidrugiejmacierzy[0].length; kolumna++) {
+                    //tymczasowa stała w której będzie pojawiać się wynik cząstkowy wartości macierzy
+                    double rezultat = 0;
+                    // wyliczenie każdego iloczynu dla danej wartości, następnie ich suma
+                    for (int i = 0; i < wartoscipierwszejmacierzy[0].length; i++){
+                        rezultat =rezultat + wartoscipierwszejmacierzy[wiersz][i] * wartoscidrugiejmacierzy[i][kolumna];
+                    }
+                    //zapisanie wyniku do odpowiedniego miejsca w tablicy
+                    wynik[kolumna][wiersz] = rezultat;
+
+
+
+                }
+
+
+            }
+            Macierz Wynik = new Macierz(wynik);
+            return Wynik;
+
+        }
+        else {
+
+            throw new IllegalArgumentException("Warunek konieczny mnożenia macierzy jest niespełniony! Spradź wymiary macierzy.");
+        }
+
+
+
+
+    }
+
+    public static void main(String args[]){
+        Macierz macierz1 = macierz(new double[]{1,2,3}, new double[]{1,2,3});
+        Macierz macierz2 = macierz(new double[]{1,2}, new double[]{1,2}, new double[]{1,2});
+        System.out.println(iloczynmacierzy(macierz1,macierz2));
+
+
+
+    }
 }
+
+
+
