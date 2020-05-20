@@ -1,4 +1,4 @@
-public class iloczynskalarny extends Wektor {
+public class IloczynSkalarny extends Wektor {
     boolean czymoznapoliczyciloczynwektorowy;
     Wektor wektorpierwszy;
     Wektor wektordrugi;

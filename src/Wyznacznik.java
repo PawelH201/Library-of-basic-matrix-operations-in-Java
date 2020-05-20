@@ -1,72 +1,91 @@
 import java.lang.IllegalArgumentException;
+import java.math.BigDecimal;
 
-public class Wyznacznik extends Macierzkwadratowa
+
+public class Wyznacznik extends MacierzKwadratowa
 {
     static double wyznacznikMacierzy(Macierz macierzparametr)
     {
-        if (isMacierzwKwadratowa(macierzparametr))
+        if (isMacierzKwadratowa(macierzparametr))
         {
-            double[][] macierz = macierzparametr.getMacierz();
-            double[][] macierz2 = macierzparametr.getMacierz();
-            double[][] macierztymczasowa = new double[macierzparametr.getMacierz()[0].length][macierzparametr.getMacierz().length];
-            double wyznacznik = 0;
+            double[][] macierzkopia = macierzparametr.getMacierz();
+
+            double[][] macierz2;
+            double wyznacznik;
             int rozmiar = macierzparametr.getMacierz().length;
-            int row = 0;
-            int pozycja = 0;
+            double[][] macierz = new double[rozmiar][rozmiar];
+            for (int n = 0; n < rozmiar; n++)
+            {
+                for (int m = 0; m < rozmiar; m++)
+                {
+                    macierz[n][m] = macierzkopia[n][m];
+                }
+            }
 
             if (rozmiar==1)
             {
                 wyznacznik=macierz[0][0];
+                return wyznacznik;
             }
             else if (rozmiar==2)
             {
                 wyznacznik=macierz[0][0]*macierz[1][1]-macierz[0][1]*macierz[1][0];
+                return wyznacznik;
             }
             else
             {
                 for (int i=0; i<rozmiar; i++)
                 {
+                    int pozycja = i;
+                    int row;
                     for (int n=0; n<rozmiar; n++)
                     {
                         row = i + n;
-                        if (macierz[i][row]!=0)
+                        if (row>=rozmiar)
+                        {
+                            break;
+                        }
+                        if (macierz[row][i]!=0)
                         {
                             pozycja = row;
                             break;
                         }
-                        else if (macierz[i][n]==0)
+                        else if (macierz[row][i]==0)
                         {
-                            if (n==rozmiar-1)
+                            if (row==rozmiar-1)
                             {
                                 wyznacznik=0;
                                 return wyznacznik;
                             }
-                            else
-                            {
-                                continue;
-                            }
-                        }
-                        else if (macierz[i][n]!=0)
-                        {
-                            pozycja = n;
-                            break;
                         }
                     }
                     if (pozycja!=i)
                     {
-                        macierz[i]=macierzparametr.getMacierz()[pozycja];
-                        macierz[pozycja]=macierzparametr.getMacierz()[i];
+                        double[] tmp = macierz[i];
+                        macierz[i] = macierz[pozycja];
+                        macierz[pozycja] = tmp;
                     }
-                    macierztymczasowa[i] = macierz[i];
-                    macierz2 = macierz;
-                    for (int x=pozycja; x<rozmiar; x++)
+
+                    macierz2 = new double[rozmiar][rozmiar];
+                    for (int n = 0; n < rozmiar; n++)
                     {
-                        macierz[pozycja][x]=macierz2[pozycja][x]/macierz[pozycja][i];
-                        if (pozycja!=rozmiar-1)
+                        for (int m = 0; m < rozmiar; m++)
                         {
-                            for (int y=i; y<rozmiar-1; y++)
+                            macierz2[n][m] = macierz[n][m];
+                        }
+                    }
+
+                    for (int x=i; x<rozmiar; x++)
+                    {
+                        macierz[i][x]/=macierz2[i][i];
+                    }
+                    for (int x=i; x<rozmiar; x++)
+                    {
+                        if (x+1<rozmiar)
+                        {
+                            for (int y=i; y<rozmiar; y++)
                             {
-                                macierz[x+1][y]=macierz[x+1][y]-macierz[x+1][y]*macierz[pozycja][i];
+                                macierz[x+1][y]-=(macierz2[x+1][i]*macierz[i][y]);
                             }
                         }
                         else
@@ -74,13 +93,31 @@ public class Wyznacznik extends Macierzkwadratowa
                             break;
                         }
                     }
+                    for (int x=i; x<rozmiar; x++)
+                    {
+                        macierz[i][x]*=macierz2[i][i];
+                    }
                 }
+                double results = 1;
+                for (int i=0; i<rozmiar; i++)
+                {
+                    results*=macierz[i][i];
+                }
+                wyznacznik=results;
+                return wyznacznik;
             }
-            return wyznacznik;
         }
         else
         {
             throw new IllegalArgumentException("Podana macierz nie jest macierzą kwadratową");
         }
+    }
+    public static void main(String args[])
+    {
+        Macierz macierz1 = macierz(new double[]{2,4,2}, new double[]{93,4,3}, new double[]{3,5,8});
+        Macierz macierz2 = macierz(new double[]{3,2,4,5}, new double[]{4,3,2,1}, new double[]{67,7,5,4}, new double[]{12,9,6,3});
+
+        System.out.println(wyznacznikMacierzy(macierz1));
+        System.out.println(wyznacznikMacierzy(macierz2));
     }
 }

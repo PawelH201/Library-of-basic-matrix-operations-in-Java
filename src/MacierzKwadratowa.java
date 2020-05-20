@@ -1,6 +1,6 @@
-public class Macierzkwadratowa extends Macierz
+public class MacierzKwadratowa extends Macierz
 {
-    static boolean isMacierzwKwadratowa(Macierz macierzparametr)
+    static boolean isMacierzKwadratowa(Macierz macierzparametr)
     {
         boolean isKwadratowa;
         double[][] macierz = macierzparametr.getMacierz();
@@ -21,7 +21,7 @@ public class Macierzkwadratowa extends Macierz
         Macierz macierz1 = macierz(new double[]{2,4,2}, new double[]{93,4,2}, new double[]{3,5,8});
         Macierz macierz2 = macierz(new double[]{2,4,2}, new double[]{93,4,2});
 
-        System.out.println(isMacierzwKwadratowa(macierz1));
-        System.out.println(isMacierzwKwadratowa(macierz2));
+        System.out.println(isMacierzKwadratowa(macierz1));
+        System.out.println(isMacierzKwadratowa(macierz2));
     }
 }

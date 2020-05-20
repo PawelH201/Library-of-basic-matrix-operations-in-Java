@@ -3,7 +3,7 @@
  */
 
 
-class iloczynwektorowy extends Wektor{
+class IloczynWektorowy extends Wektor{
     //deklaracja zmiennych typu wektor
     boolean czymoznapoliczyciloczynwektorowy;
     Wektor wektorpierwszy;
