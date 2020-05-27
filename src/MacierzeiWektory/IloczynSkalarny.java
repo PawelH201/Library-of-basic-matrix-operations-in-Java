@@ -1,3 +1,5 @@
+package MacierzeiWektory;
+
 public class IloczynSkalarny extends Wektor {
     static Wektor iloczynskalarny(Wektor pierwszy, Wektor drugi) {
 

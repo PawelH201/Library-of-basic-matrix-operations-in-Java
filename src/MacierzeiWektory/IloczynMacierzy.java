@@ -1,3 +1,5 @@
+package MacierzeiWektory;
+
 public class IloczynMacierzy extends Macierz {
     static Macierz iloczynmacierzy(Macierz pierwszamacierz, Macierz drugamacierz) {
 

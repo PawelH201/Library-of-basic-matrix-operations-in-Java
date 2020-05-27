@@ -1,4 +1,4 @@
-import java.lang.IllegalArgumentException;
+package MacierzeiWektory;
 
 public class Wyznacznik extends MacierzKwadratowa
 {

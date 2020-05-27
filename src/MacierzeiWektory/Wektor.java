@@ -1,3 +1,5 @@
+package MacierzeiWektory;
+
 import java.util.Arrays;
 
 public class Wektor

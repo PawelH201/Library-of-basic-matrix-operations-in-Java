@@ -1,3 +1,5 @@
+package MacierzeiWektory;
+
 //Klasa potomna klasy Macierz zawierająca metody sumaMacierzy, różnica Macierzy.
 public class SumaiRóżnicaMacierzy extends Macierz {
     public static Macierz sumaMacierzy(Macierz macierz, Macierz macierz2) { //metoda służąca dodawaniu macierzy
@@ -20,7 +22,7 @@ public class SumaiRóżnicaMacierzy extends Macierz {
         return Wynik;
     }
 
-    public static Macierz różnicaMacierzy(Macierz macierz,Macierz macierz2) { //metoda służąca odejmowaniu macierzy
+    public static Macierz różnicaMacierzy(Macierz macierz, Macierz macierz2) { //metoda służąca odejmowaniu macierzy
         double[][] tablica1=macierz.getMacierz();
         double[][] tablica2=macierz2.getMacierz();
         double[][] wynik=new double[tablica1.length][tablica2[0].length];

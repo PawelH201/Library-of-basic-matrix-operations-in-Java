@@ -1,3 +1,5 @@
+package MacierzeiWektory;
+
 public class MacierzKwadratowa extends Macierz
 {
     static boolean isMacierzKwadratowa(Macierz macierzparametr)

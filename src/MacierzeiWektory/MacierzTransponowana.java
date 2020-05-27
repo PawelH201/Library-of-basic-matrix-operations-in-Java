@@ -1,3 +1,5 @@
+package MacierzeiWektory;
+
 public class MacierzTransponowana extends Macierz // deklaracja klasy Macierztransponowana, która dziedziczy po klasie Macierz
 {
     static Macierz macierzTransponowana(Macierz macierzparametr) // deklaracja metody macierzTransponowana (parametr obiekt Macierz)

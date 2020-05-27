@@ -1,3 +1,5 @@
+package MacierzeiWektory;
+
 public class SumaiRóżnicaWektorów extends Wektor {
     public static Wektor sumawektorów(Wektor wektor1, Wektor wektor2){
         double[] tablica1=wektor1.getWektor();

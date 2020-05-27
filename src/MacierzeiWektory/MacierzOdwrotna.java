@@ -1,3 +1,5 @@
+package MacierzeiWektory;
+
 public class MacierzOdwrotna extends Wyznacznik
 {
     static Macierz macierzOdwrotna(Macierz macierzparametr)
