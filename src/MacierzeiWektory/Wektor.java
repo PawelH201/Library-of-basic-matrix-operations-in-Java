@@ -1,4 +1,7 @@
 package MacierzeiWektory;
+/**Klasa służąca do tworzenia jednowymiarowej tablicy typu double
+ * @author Paweł Hulanicki
+ */
 
 import java.util.Arrays;
 
@@ -25,7 +28,10 @@ public class Wektor
         this.wektor = wektor;
     }
 
-    //deklaracja metody wektor, tworzy tablice ze zmiennymi double a nastepnie ja zwraca
+    /**
+     * @param wektorparametr
+     * @return zwraca parametry wektor w obiekcie Wektor
+     */
     public static Wektor wektor(double... wektorparametr)
     {
         Wektor wektor = new Wektor(wektorparametr);
@@ -38,8 +44,7 @@ public class Wektor
         return Arrays.toString(wektor);
     }
 
-    /*
-    //czesc testowa
+    /*Kod testowy
     public static void main(String[] args)
     {
         //utworzenie wektora

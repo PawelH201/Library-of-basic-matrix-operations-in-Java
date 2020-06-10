@@ -1,11 +1,21 @@
 package MacierzeiWektory;
 
+/**Klasa służąca odwracaniu macierzy
+ * @author Mikołaj Pater
+ */
 public class MacierzOdwrotna extends Wyznacznik
 {
+    /**
+     *
+     * @param macierzparametr
+     * @return zwraca odwróconą macierz wprowadzoną jako parametr
+     * @throws IllegalArgumentException w przypadku, gdy dla macierzy nie istnieje macierz odwrotna
+     */
     public static Macierz macierzOdwrotna(Macierz macierzparametr)
     {
         if (wyznacznikMacierzy(macierzparametr)==0)
         {
+
             throw new IllegalArgumentException("Z podanej macierzy nie można wyznaczyć macierzy odwrotnej!");
         }
         else
@@ -122,7 +132,7 @@ public class MacierzOdwrotna extends Wyznacznik
         }
     }
 
-    /*
+    /*Kod testowy
     public static void main(String args[])
     {
         Macierz macierz1 = macierz(new double[]{2,4,2}, new double[]{93,4,3}, new double[]{3,5,8});

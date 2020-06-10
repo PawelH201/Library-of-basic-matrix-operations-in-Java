@@ -1,9 +1,12 @@
 package MacierzeiWektory;
+/**
+ * Klasa służąca do tworzenia dwuwymiarowej tablicy typu double.
+ * @author Mikołaj Pater
+ */
 
 import java.util.Arrays;
 
-public class Macierz
-{
+public class Macierz {
     private double[][] macierz; //deklaracja prywatnej tablicy dwuwymiarowej macierz
 
     public double[][] getMacierz() // zwraca dwuwymiarową tablicę macierz
@@ -22,16 +25,19 @@ public class Macierz
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         StringBuilder result = new StringBuilder();
-        for (double[] n : macierz)
-        {
+        for (double[] n : macierz) {
             result.append(Arrays.toString(n));
         }
         return result.toString();
     }
 
+    /**
+     * @param macierzparametr
+     * @return zwraca parametry macierz w obiekcie Macierz
+     * @throw IllegalArgumentException pojawia się w przypadku wprowadzenia złych parametrów macierzy
+     */
     public static Macierz macierz(double[]... macierzparametr) // deklaracja metody macierz(), która tworzy obiekt Macierz na podstawie tablicy dwuwymiarowej oraz sprawdza czy jej rozmiary pasują do macierzy
     {
         for (int i = 0; i < macierzparametr.length; i++) // pętla, która sprawdza każdą wpisaną tablicę
@@ -42,10 +48,10 @@ public class Macierz
             }
         }
         Macierz macierz = new Macierz(macierzparametr);
-        return macierz; // zwraca parametry macierzy w obiekcie Macierz
+        return macierz;
     }
 
-    /*
+    /* Kod testowy
     public static void main(String[] args)
     {
         Macierz macierz1 = new Macierz(new double[]{23,34.2,23.2}, new double[]{2,3,4});

@@ -1,6 +1,14 @@
 package MacierzeiWektory;
-
+/**Klasa służąca do mnożenia skalarów
+ * @author Paweł Hulanicki
+ */
 public class IloczynSkalarny extends Wektor {
+    /**
+     * @param pierwszy
+     * @param drugi
+     * @return zwraca iloczyn skalarny wektorów
+     * @throws IllegalArgumentException w przypadku gdy wymiar podanych wektorów jest niepoprawny
+     */
     public static Wektor iloczynSkalarny(Wektor pierwszy, Wektor drugi) {
 
         //wyciągniecie tablic z obiektow Wektor
@@ -29,7 +37,7 @@ public class IloczynSkalarny extends Wektor {
         }
     }
 
-    /*
+    /* Kod testowy
     public static void main(String args[]) {
         //utworzenie obiektow wektor
         Wektor pierwszy = new Wektor(2, 2, 4,5,4);
