@@ -32,7 +32,7 @@ public class RownaniaCramer extends Wyznacznik {
                 Macierz MacierzZDopelnieniem = new Macierz(macierzZDopelnieniem);
                 if (wyznacznikMacierzy(MacierzPodstawowa) == 0)
                 {
-                    throw new IllegalArgumentException("Podana macierz podstawowa ma wyznacznik zerowy, nie można określić oznaczonego rozwiązania tego układu równań");
+                    throw new ArithmeticException("Podana macierz podstawowa ma wyznacznik zerowy, nie można określić oznaczonego rozwiązania tego układu równań");
                 }
                 wynik[niewiadoma] = wyznacznikMacierzy(MacierzZDopelnieniem) / wyznacznikMacierzy(MacierzPodstawowa);
             }
