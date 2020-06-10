@@ -140,12 +140,103 @@ public class Kalkulator
                 catch (Exception ignored)
                 {}
             }
+            //iloczyn skalarny
             else if (indeks == 3)
             {
+                System.out.println("Wybrano operację iloczynu skalarnego wektorów");
+                Wektor wektor1;
+                Wektor wektor2;
 
+                System.out.println("Podaj rozmiar 1. wektora");
+                int wektorrozmiar1 = scanner.nextInt();
+                double[] parametrwektor1 = new double[wektorrozmiar1];
+
+                for (int i = 0; i < wektorrozmiar1; i++)
+                {
+                    System.out.print("Podaj " + (i+1) + ". wartość: ");
+                    double wartoscwektor1 = scanner.nextDouble();
+                    parametrwektor1[i] = wartoscwektor1;
+                }
+                wektor1 = Wektor.wektor(parametrwektor1);
+
+                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor1 + "\n");
+
+                System.out.println("Podaj rozmiar 2. wektora");
+                int wektorrozmiar2 = scanner.nextInt();
+                double[] parametrwektor2 = new double[wektorrozmiar2];
+
+                for (int i = 0; i < wektorrozmiar2; i++)
+                {
+                    System.out.print("Podaj " + (i+1) + ". wartość: ");
+                    double wartoscwektor2 = scanner.nextDouble();
+                    parametrwektor2[i] = wartoscwektor2;
+                }
+                wektor2 = Wektor.wektor(parametrwektor2);
+
+                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor2 + "\n");
+
+                try
+                {
+                    Wektor iloczyn = IloczynSkalarny.iloczynSkalarny(wektor1, wektor2);
+                    System.out.println("Iloczyn skalarny tych wektorów wygląda następująco: \n" + iloczyn);
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano nierówne wielkości wektorów!");
+                }
             }
+            //iloczyn wektorowy
             else if (indeks == 4)
             {
+                System.out.println("Wybrano operację iloczynu wektorowego wektorów");
+                Wektor wektor1;
+                Wektor wektor2;
+
+                System.out.println("Podaj rozmiar 1. wektora");
+                int wektorrozmiar1 = scanner.nextInt();
+                double[] parametrwektor1 = new double[wektorrozmiar1];
+
+                for (int i = 0; i < wektorrozmiar1; i++)
+                {
+                    System.out.print("Podaj " + (i+1) + ". wartość: ");
+                    double wartoscwektor1 = scanner.nextDouble();
+                    parametrwektor1[i] = wartoscwektor1;
+                }
+                wektor1 = Wektor.wektor(parametrwektor1);
+
+                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor1 + "\n");
+
+                System.out.println("Podaj rozmiar 2. wektora");
+                int wektorrozmiar2 = scanner.nextInt();
+                double[] parametrwektor2 = new double[wektorrozmiar2];
+
+                for (int i = 0; i < wektorrozmiar2; i++)
+                {
+                    System.out.print("Podaj " + (i+1) + ". wartość: ");
+                    double wartoscwektor2 = scanner.nextDouble();
+                    parametrwektor2[i] = wartoscwektor2;
+                }
+                wektor2 = Wektor.wektor(parametrwektor2);
+
+                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor2 + "\n");
+
+                try
+                {
+                    Wektor iloczyn = IloczynWektorowy.iloczynwektorowy(wektor1, wektor2);
+                    System.out.println("Iloczyn wektorowy tych wektorów wygląda następująco: \n" + iloczyn);
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano nierówne wielkości wektorów!");
+                }
+
+                System.out.println("Wciśnij enter, aby wrocić do menu...");
+                try
+                {
+                    System.in.read();
+                }
+                catch (Exception ignored)
+                {}
 
             }
             else if (indeks == 5)
