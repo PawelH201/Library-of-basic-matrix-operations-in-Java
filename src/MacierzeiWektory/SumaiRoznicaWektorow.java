@@ -1,7 +1,7 @@
 package MacierzeiWektory;
 
-public class SumaiRóżnicaWektorów extends Wektor {
-    public static Wektor sumawektorów(Wektor wektor1, Wektor wektor2){
+public class SumaiRoznicaWektorow extends Wektor {
+    public static Wektor sumaWektorow(Wektor wektor1, Wektor wektor2){
         double[] tablica1=wektor1.getWektor();
         double[] tablica2=wektor2.getWektor();
         double[] wynik = new double[tablica1.length];
@@ -12,13 +12,13 @@ public class SumaiRóżnicaWektorów extends Wektor {
             }
         }
         else {
-        throw new RuntimeException("Operacja dodawania nie jest możliwa dla różnych długości wektorów! ");
+        throw new IllegalArgumentException("Operacja dodawania nie jest możliwa dla różnych długości wektorów! ");
         }
         Wektor Wynik = new Wektor(wynik);
         return Wynik;
     }
 
-    public static Wektor różnicawektorów(Wektor wektor1, Wektor wektor2){
+    public static Wektor roznicaWektorow(Wektor wektor1, Wektor wektor2){
         double[] tablica1=wektor1.getWektor();
         double[] tablica2=wektor2.getWektor();
         double[] wynik = new double[tablica1.length];
@@ -29,7 +29,7 @@ public class SumaiRóżnicaWektorów extends Wektor {
             }
         }
         else {
-            throw new RuntimeException("Operacja odejmowania nie jest możliwa dla różnych długości wektorów!");
+            throw new IllegalArgumentException("Operacja odejmowania nie jest możliwa dla różnych długości wektorów!");
         }
         Wektor Wynik = new Wektor(wynik);
         return Wynik;

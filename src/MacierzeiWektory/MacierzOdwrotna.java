@@ -2,7 +2,7 @@ package MacierzeiWektory;
 
 public class MacierzOdwrotna extends Wyznacznik
 {
-    static Macierz macierzOdwrotna(Macierz macierzparametr)
+    public static Macierz macierzOdwrotna(Macierz macierzparametr)
     {
         if (wyznacznikMacierzy(macierzparametr)==0)
         {

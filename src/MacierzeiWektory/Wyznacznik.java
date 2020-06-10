@@ -2,7 +2,7 @@ package MacierzeiWektory;
 
 public class Wyznacznik extends MacierzKwadratowa
 {
-    static double wyznacznikMacierzy(Macierz macierzparametr)
+    public static double wyznacznikMacierzy(Macierz macierzparametr)
     {
         if (isMacierzKwadratowa(macierzparametr))
         {

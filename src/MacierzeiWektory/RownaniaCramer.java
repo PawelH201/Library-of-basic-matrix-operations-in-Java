@@ -2,7 +2,7 @@ package MacierzeiWektory;
 
 public class RownaniaCramer extends Wyznacznik {
 
-    static double[] ukladRownan(Macierz macierz) {
+    public static double[] ukladRownan(Macierz macierz) {
 
         int wierszeMacierz = macierz.getMacierz().length;
         int kolumnyMacierz = macierz.getMacierz()[0].length;

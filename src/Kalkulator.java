@@ -1,4 +1,6 @@
 import MacierzeiWektory.*;
+
+import javax.crypto.Mac;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -38,50 +40,90 @@ public class Kalkulator
             if (indeks == 1)
             {
                 System.out.println("Wybrano operację sumowania wektorów");
-                while (true)
+                Wektor wektor1;
+                Wektor wektor2;
+
+                System.out.println("Podaj rozmiar 1. wektora");
+                int wektorrozmiar1 = scanner.nextInt();
+                double[] parametrwektor1 = new double[wektorrozmiar1];
+
+                for (int i = 0; i < wektorrozmiar1; i++)
                 {
-                    System.out.println("1 - Wprowadź pierwszy wektor");
-                    System.out.println("2 - Wprowadź drugi wektor");
-                    System.out.println("3 - Wykonaj operację na tych wektorach");
-                    System.out.println("4 - Powrót do menu");
+                    System.out.print("Podaj " + (i+1) + ". wartość: ");
+                    double wartoscwektor1 = scanner.nextDouble();
+                    parametrwektor1[i] = wartoscwektor1;
+                }
+                wektor1 = Wektor.wektor(parametrwektor1);
 
-                    int indeks1 = scanner.nextInt();
+                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor1 + "\n");
 
-                    if (indeks1 == 1)
-                    {
-                        System.out.println("Podaj rozmiar 1. wektora");
-                        int wektorrozmiar1 = scanner.nextInt();
-                        double[] parametrwektor1 = new double[wektorrozmiar1];
+                System.out.println("Podaj rozmiar 2. wektora");
+                int wektorrozmiar2 = scanner.nextInt();
+                double[] parametrwektor2 = new double[wektorrozmiar2];
 
-                        for (int i = 0; i < wektorrozmiar1; i++)
-                        {
-                            System.out.print("Podaj " + (i+1) + ". wartość: ");
-                            double wartoscwektor1 = scanner.nextDouble();
-                            parametrwektor1[i] = wartoscwektor1;
-                        }
+                for (int i = 0; i < wektorrozmiar2; i++)
+                {
+                    System.out.print("Podaj " + (i+1) + ". wartość: ");
+                    double wartoscwektor2 = scanner.nextDouble();
+                    parametrwektor2[i] = wartoscwektor2;
+                }
+                wektor2 = Wektor.wektor(parametrwektor2);
 
-                    }
-                    else if (indeks1 == 2)
-                    {
+                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor2 + "\n");
 
-                    }
-                    else if (indeks1 == 3)
-                    {
-
-                    }
-                    else if (indeks1 == 4)
-                    {
-
-                    }
-                    else
-                    {
-                        System.out.println("Podano zły indeks!");
-                    }
+                try
+                {
+                    Wektor suma = SumaiRoznicaWektorow.sumaWektorow(wektor1, wektor2);
+                    System.out.println("Suma tych wektorów wygląda następująco: \n" + suma);
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano nierówne wielkości wektorów!");
                 }
             }
             else if (indeks == 2)
             {
+                System.out.println("Wybrano operację odejmowania wektorów");
+                Wektor wektor1;
+                Wektor wektor2;
 
+                System.out.println("Podaj rozmiar 1. wektora");
+                int wektorrozmiar1 = scanner.nextInt();
+                double[] parametrwektor1 = new double[wektorrozmiar1];
+
+                for (int i = 0; i < wektorrozmiar1; i++)
+                {
+                    System.out.print("Podaj " + (i+1) + ". wartość: ");
+                    double wartoscwektor1 = scanner.nextDouble();
+                    parametrwektor1[i] = wartoscwektor1;
+                }
+                wektor1 = Wektor.wektor(parametrwektor1);
+
+                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor1 + "\n");
+
+                System.out.println("Podaj rozmiar 2. wektora");
+                int wektorrozmiar2 = scanner.nextInt();
+                double[] parametrwektor2 = new double[wektorrozmiar2];
+
+                for (int i = 0; i < wektorrozmiar2; i++)
+                {
+                    System.out.print("Podaj " + (i+1) + ". wartość: ");
+                    double wartoscwektor2 = scanner.nextDouble();
+                    parametrwektor2[i] = wartoscwektor2;
+                }
+                wektor2 = Wektor.wektor(parametrwektor2);
+
+                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor2 + "\n");
+
+                try
+                {
+                    Wektor roznica = SumaiRoznicaWektorow.roznicaWektorow(wektor1, wektor2);
+                    System.out.println("Różnica tych wektorów wygląda następująco: \n" + roznica);
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano nierówne wielkości wektorów!");
+                }
             }
             else if (indeks == 3)
             {
@@ -121,7 +163,7 @@ public class Kalkulator
             }
             else if (indeks == 12)
             {
-                System.out.println("Program stworzony jako projekt na przedmiot: Podstawy Programowania 2 (PRM2T) \n Autorzy: Mikołaj Pater, Paweł Hulanicki, Jowita Walczuk");
+                System.out.println("Program stworzony jako projekt na przedmiot: Podstawy Programowania 2 (PRM2T) \nAutorzy: Mikołaj Pater, Paweł Hulanicki, Jowita Walczuk");
             }
             else if (indeks == 13)
             {

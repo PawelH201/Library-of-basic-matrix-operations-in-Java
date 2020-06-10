@@ -2,7 +2,7 @@ package MacierzeiWektory;
 
 public class MacierzTransponowana extends Macierz // deklaracja klasy Macierztransponowana, która dziedziczy po klasie Macierz
 {
-    static Macierz macierzTransponowana(Macierz macierzparametr) // deklaracja metody macierzTransponowana (parametr obiekt Macierz)
+    public static Macierz macierzTransponowana(Macierz macierzparametr) // deklaracja metody macierzTransponowana (parametr obiekt Macierz)
     {
         double[][] macierztymczasowa = new double[macierzparametr.getMacierz()[0].length][macierzparametr.getMacierz().length]; // deklaracja tymczasowej tablicy dwuwymiarowej o rozmiarach macierzy transponowanej
         for (int i = 0; i < macierzparametr.getMacierz().length; i++) // pętla która sprawdza ilość wierszy w obiekcie Macierz

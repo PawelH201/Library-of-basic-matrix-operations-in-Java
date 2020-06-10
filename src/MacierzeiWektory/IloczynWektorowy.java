@@ -1,8 +1,8 @@
 package MacierzeiWektory;
 
-class IloczynWektorowy extends Wektor {
+public class IloczynWektorowy extends Wektor {
     //deklaracja metody iloczynwektorowy, obliczająca iloczyn dla wektorów w R3
-    static Wektor iloczynwektorowy(Wektor pierwszy, Wektor drugi) {
+    public static Wektor iloczynwektorowy(Wektor pierwszy, Wektor drugi) {
         //wyciągniecie tablic z obiektow Wektor
         double[] wektorpierwszy = pierwszy.getWektor();
         double[] wektordrugi = drugi.getWektor();

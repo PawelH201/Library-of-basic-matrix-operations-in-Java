@@ -1,7 +1,7 @@
 package MacierzeiWektory;
 
 public class IloczynMacierzy extends Macierz {
-    static Macierz iloczynmacierzy(Macierz pierwszamacierz, Macierz drugamacierz) {
+    public static Macierz iloczynMacierzy(Macierz pierwszamacierz, Macierz drugamacierz) {
 
         //wartości danych macierzy w formie tablic dwuwymiarowych
         double[][] wartoscipierwszejmacierzy = pierwszamacierz.getMacierz();

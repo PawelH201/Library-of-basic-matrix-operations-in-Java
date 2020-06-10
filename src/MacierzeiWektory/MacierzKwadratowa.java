@@ -2,7 +2,7 @@ package MacierzeiWektory;
 
 public class MacierzKwadratowa extends Macierz
 {
-    static boolean isMacierzKwadratowa(Macierz macierzparametr)
+    public static boolean isMacierzKwadratowa(Macierz macierzparametr)
     {
         boolean isKwadratowa;
         double[][] macierz = macierzparametr.getMacierz();

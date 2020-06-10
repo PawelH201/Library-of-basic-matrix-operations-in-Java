@@ -26,7 +26,7 @@ public class Wektor
     }
 
     //deklaracja metody wektor, tworzy tablice ze zmiennymi double a nastepnie ja zwraca
-    static Wektor wektor(double... wektorparametr)
+    public static Wektor wektor(double... wektorparametr)
     {
         Wektor wektor = new Wektor(wektorparametr);
         return wektor;

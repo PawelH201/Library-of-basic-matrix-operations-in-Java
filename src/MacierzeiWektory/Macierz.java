@@ -32,7 +32,7 @@ public class Macierz
         return result.toString();
     }
 
-    static Macierz macierz(double[]... macierzparametr) // deklaracja metody macierz(), która tworzy obiekt Macierz na podstawie tablicy dwuwymiarowej oraz sprawdza czy jej rozmiary pasują do macierzy
+    public static Macierz macierz(double[]... macierzparametr) // deklaracja metody macierz(), która tworzy obiekt Macierz na podstawie tablicy dwuwymiarowej oraz sprawdza czy jej rozmiary pasują do macierzy
     {
         for (int i = 0; i < macierzparametr.length; i++) // pętla, która sprawdza każdą wpisaną tablicę
         {
