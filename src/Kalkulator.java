@@ -54,7 +54,7 @@ public class Kalkulator
                 }
                 wektor1 = Wektor.wektor(parametrwektor1);
 
-                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor1 + "\n");
+                System.out.println("Ten wektor wygląda następująco: \n" + wektor1 + "\n");
 
                 System.out.println("Podaj rozmiar 2. wektora");
                 int wektorrozmiar2 = scanner.nextInt();
@@ -68,7 +68,7 @@ public class Kalkulator
                 }
                 wektor2 = Wektor.wektor(parametrwektor2);
 
-                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor2 + "\n");
+                System.out.println("Ten wektor wygląda następująco: \n" + wektor2 + "\n");
 
                 try
                 {
@@ -77,7 +77,7 @@ public class Kalkulator
                 }
                 catch (IllegalArgumentException e)
                 {
-                    System.out.println("Podano nierówne wielkości wektorów!");
+                    System.out.println("Podano nierówne wielkości wektorów! Sprawdź czy wpisane wektory mają tyle samo wartości.");
                 }
 
                 System.out.println("Wciśnij enter, aby kontynuować...");
@@ -106,7 +106,7 @@ public class Kalkulator
                 }
                 wektor1 = Wektor.wektor(parametrwektor1);
 
-                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor1 + "\n");
+                System.out.println("Ten wektor wygląda następująco: \n" + wektor1 + "\n");
 
                 System.out.println("Podaj rozmiar 2. wektora");
                 int wektorrozmiar2 = scanner.nextInt();
@@ -120,7 +120,7 @@ public class Kalkulator
                 }
                 wektor2 = Wektor.wektor(parametrwektor2);
 
-                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor2 + "\n");
+                System.out.println("Ten wektor wygląda następująco: \n" + wektor2 + "\n");
 
                 try
                 {
@@ -129,7 +129,7 @@ public class Kalkulator
                 }
                 catch (IllegalArgumentException e)
                 {
-                    System.out.println("Podano nierówne wielkości wektorów!");
+                    System.out.println("Podano nierówne wielkości wektorów! Sprawdź czy wpisane wektory mają tyle samo wartości.");
                 }
 
                 System.out.println("Wciśnij enter, aby kontynuować...");
@@ -143,7 +143,7 @@ public class Kalkulator
             //iloczyn skalarny
             else if (indeks == 3)
             {
-                System.out.println("Wybrano operację iloczynu skalarnego wektorów");
+                System.out.println("Wybrano operację iloczynu skalarnego wektorów dla trzech wymiarów.");
                 Wektor wektor1;
                 Wektor wektor2;
 
@@ -159,7 +159,7 @@ public class Kalkulator
                 }
                 wektor1 = Wektor.wektor(parametrwektor1);
 
-                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor1 + "\n");
+                System.out.println("Ten wektor wygląda następująco: \n" + wektor1 + "\n");
 
                 System.out.println("Podaj rozmiar 2. wektora");
                 int wektorrozmiar2 = scanner.nextInt();
@@ -173,7 +173,7 @@ public class Kalkulator
                 }
                 wektor2 = Wektor.wektor(parametrwektor2);
 
-                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor2 + "\n");
+                System.out.println("Ten wektor wygląda następująco: \n" + wektor2 + "\n");
 
                 try
                 {
@@ -182,7 +182,7 @@ public class Kalkulator
                 }
                 catch (IllegalArgumentException e)
                 {
-                    System.out.println("Podano nierówne wielkości wektorów!");
+                    System.out.println("Podano nierówne wielkości wektorów! Spradź czy wpisane wektory maja tyle samo wartości.");
                 }
                 try
                 {
@@ -210,7 +210,7 @@ public class Kalkulator
                 }
                 wektor1 = Wektor.wektor(parametrwektor1);
 
-                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor1 + "\n");
+                System.out.println("Ten wektor wygląda następująco: \n" + wektor1 + "\n");
 
                 System.out.println("Podaj rozmiar 2. wektora");
                 int wektorrozmiar2 = scanner.nextInt();
@@ -224,7 +224,7 @@ public class Kalkulator
                 }
                 wektor2 = Wektor.wektor(parametrwektor2);
 
-                System.out.println("Ten wektor wygląda nastęująco: \n" + wektor2 + "\n");
+                System.out.println("Ten wektor wygląda następująco: \n" + wektor2 + "\n");
 
                 try
                 {
@@ -233,7 +233,7 @@ public class Kalkulator
                 }
                 catch (IllegalArgumentException e)
                 {
-                    System.out.println("Podano nierówne wielkości wektorów!");
+                    System.out.println("Podano nierówne wielkości wektorów! Sprawdź czy podane wektory mają po tyle samo wartości.");
                 }
 
                 System.out.println("Wciśnij enter, aby wrocić do menu...");
@@ -245,6 +245,7 @@ public class Kalkulator
                 {}
 
             }
+            //dodawanie macierzy
             else if (indeks == 5)
             {
                 System.out.println("Wybrano operację sumowania macierzy");
@@ -407,8 +408,100 @@ public class Kalkulator
                 {}
 
             }
+            //iloczyn macierzy
             else if (indeks == 8)
             {
+                System.out.println("Wybrano operację iloczynu macierzy");
+
+                Macierz macierz1;
+                Macierz macierz2;
+
+                System.out.println("Podaj liczbę wierszy pierwszej macierzy");
+                int wiersze1 = scanner.nextInt();
+                System.out.println("Podaj liczbę kolumn pierwszej macierzy");
+                int kolumny1 = scanner.nextInt();
+                System.out.println("Macierz ma następujące rozmiary: " + wiersze1 + "X" + kolumny1);
+
+                double[][] parametr1 = new double[wiersze1][kolumny1];
+
+                for (int i = 0; i < wiersze1; i++)
+                {
+                    for (int n = 0; n < kolumny1; n++)
+                    {
+                        System.out.print("Podaj wartość dla " + (i+1) + ". wiersza, " + (n+1) + ". kolumny: ");
+                        double wartosc1 = scanner.nextDouble();
+                        parametr1[i][n] = wartosc1;
+                    }
+                }
+                try
+                {
+                    macierz1 = Macierz.macierz(parametr1);
+                    System.out.println("Macierz 1. wygląda następująco: ");
+                    for (int i = 0; i < wiersze1; i++)
+                    {
+                        System.out.println(Arrays.toString(macierz1.getMacierz()[i]));
+                    }
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano złe rozmiary macierzy!");
+                }
+
+                System.out.println("Podaj liczbę wierszy drugiej macierzy");
+                int wiersze2 = scanner.nextInt();
+                System.out.println("Podaj liczbę kolumn drugiej macierzy");
+                int kolumny2 = scanner.nextInt();
+                System.out.println("Macierz ma następujące rozmiary: " + wiersze2 + "X" + kolumny2);
+
+                double[][] parametr2 = new double[wiersze2][kolumny2];
+
+                for (int i = 0; i < wiersze2; i++)
+                {
+                    for (int n = 0; n < kolumny2; n++)
+                    {
+                        System.out.print("Podaj wartość dla " + (n+1) + ". wiersza, " + (n+1) + ". kolumny: ");
+                        double wartosc2 = scanner.nextDouble();
+                        parametr2[i][n] = wartosc2;
+                    }
+                }
+                try
+                {
+                    macierz2 = Macierz.macierz(parametr2);
+                    System.out.println("Macierz 2. wygląda następująco: ");
+                    for (int i = 0; i < wiersze2; i++)
+                    {
+                        System.out.println(Arrays.toString(macierz2.getMacierz()[i]));
+                    }
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano złe rozmiary macierzy!");
+                }
+
+                try
+                {
+                    macierz1 = Macierz.macierz(parametr1);
+                    macierz2 = Macierz.macierz(parametr2);
+
+                    Macierz iloczyn = IloczynMacierzy.iloczynMacierzy(macierz1, macierz2);
+                    System.out.println("\nIloczyn tych macierzy wygląda następująco: ");
+                    for (int i = 0; i < kolumny2; i++)
+                    {
+                        System.out.println(Arrays.toString(iloczyn.getMacierz()[i]));
+                    }
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano złe rozmiary macierzy!");
+                }
+
+                System.out.println("Wciśnij enter, aby kontynuować...");
+                try
+                {
+                    System.in.read();
+                }
+                catch (Exception ignored)
+                {}
 
             }
             else if (indeks == 9)
