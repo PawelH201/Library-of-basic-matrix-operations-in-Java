@@ -184,6 +184,12 @@ public class Kalkulator
                 {
                     System.out.println("Podano nierówne wielkości wektorów!");
                 }
+                try
+                {
+                    System.in.read();
+                }
+                catch (Exception ignored)
+                {}
             }
             //iloczyn wektorowy
             else if (indeks == 4)
@@ -337,8 +343,68 @@ public class Kalkulator
             {
 
             }
+            //macierz transponowana
             else if (indeks == 7)
             {
+                System.out.println("Wybrano operację macierz transponowana");
+
+                Macierz macierz1;
+
+                System.out.println("Podaj liczbę wierszy macierzy");
+                int wiersze = scanner.nextInt();
+                System.out.println("Podaj liczbę kolumn macierzy");
+                int kolumny = scanner.nextInt();
+                System.out.println("Macierz ma następujące rozmiary: " + wiersze + "X" + kolumny);
+
+                double[][] parametr1 = new double[wiersze][kolumny];
+
+                for (int i = 0; i < wiersze; i++)
+                {
+                    for (int n = 0; n < kolumny; n++)
+                    {
+                        System.out.print("Podaj wartość dla " + (i+1) + ". wiersza, " + (n+1) + ". kolumny: ");
+                        double wartosc1 = scanner.nextDouble();
+                        parametr1[i][n] = wartosc1;
+                    }
+                }
+                try
+                {
+                    macierz1 = Macierz.macierz(parametr1);
+                    System.out.println("Macierz 1. wygląda następująco: ");
+                    for (int i = 0; i < wiersze; i++)
+                    {
+                        System.out.println(Arrays.toString(macierz1.getMacierz()[i]));
+                    }
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano złe rozmiary macierzy!");
+                }
+
+
+                try
+                {
+                    macierz1 = Macierz.macierz(parametr1);
+
+                    Macierz transponowana = MacierzTransponowana.macierzTransponowana(macierz1);
+                    System.out.println("\nTranspozycja podanej macierzy wygląda następująco: ");
+                    for (int i = 0; i < kolumny; i++)
+                    {
+                        System.out.println(Arrays.toString(transponowana.getMacierz()[i]));
+                    }
+                }
+                catch (IllegalArgumentException e)
+                {
+                    System.out.println("Podano złe rozmiary macierzy!");
+                }
+
+                System.out.println("Wciśnij enter, aby kontynuować...");
+                try
+                {
+                    System.in.read();
+                }
+                catch (Exception ignored)
+                {}
 
             }
             else if (indeks == 8)
