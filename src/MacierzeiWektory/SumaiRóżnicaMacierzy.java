@@ -40,7 +40,7 @@ public class SumaiRóżnicaMacierzy extends Macierz {
         return Suma;
     }
 
-    /*
+
     public static void main(String[] args) { //kod testowy
         Macierz macierz1 = new Macierz(new double[]{1,10.2,100}, new double[]{2.02,20.02,200.02});
         Macierz macierz2 = new Macierz(new double[]{3,30,300}, new double[]{4,40,400});
@@ -50,5 +50,5 @@ public class SumaiRóżnicaMacierzy extends Macierz {
         System.out.println("Różnica macierzy:  " + różnicaMacierzy(macierz1,macierz2));
     }
 
-     */
+
 }
