@@ -1,25 +1,34 @@
 package MacierzeiWektory;
-/** Klasa służąca do transponowania macierzy.
- * @author Paweł Hulanicki
+
+/** Klasa służąca do wyznaczenia macierzy transponowanej
+ * @author Mikołaj Pater
  */
-public class MacierzTransponowana extends Macierz // deklaracja klasy Macierztransponowana, która dziedziczy po klasie Macierz
+public class MacierzTransponowana extends Macierz
 {
     /**
-     * @param macierzparametr
-     * @return zwraca macierz wprowadzoną jako parametr na której została przeprowadzona operacja transpozycji
+     * Metoda służąca do tworzenia obiektu Macierz, który jest macierzą transponowaną dla podanej macierzy
+     * @param macierzparametr obiekt Macierz dla którego wyznaczymy macierz transponowaną
+     * @return zwraca obiekt Macierz, który jest macierzą transponowaną parametru metody
+     * @see Macierz#macierz(double[]...)
+     * @see Macierz#getMacierz()
      */
-    public static Macierz macierzTransponowana(Macierz macierzparametr) // deklaracja metody macierzTransponowana (parametr obiekt Macierz)
+    public static Macierz macierzTransponowana(Macierz macierzparametr)
     {
-        double[][] macierztymczasowa = new double[macierzparametr.getMacierz()[0].length][macierzparametr.getMacierz().length]; // deklaracja tymczasowej tablicy dwuwymiarowej o rozmiarach macierzy transponowanej
-        for (int i = 0; i < macierzparametr.getMacierz().length; i++) // pętla która sprawdza ilość wierszy w obiekcie Macierz
+        // deklaracja tymczasowej tablicy dwuwymiarowej o rozmiarach macierzy transponowanej
+        double[][] macierztymczasowa = new double[macierzparametr.getMacierz()[0].length][macierzparametr.getMacierz().length];
+        // pętla która sprawdza ilość wierszy w obiekcie Macierz
+        for (int i = 0; i < macierzparametr.getMacierz().length; i++)
         {
-            for (int n = 0; n < macierzparametr.getMacierz()[i].length; n++) // pętla która sprawdza ilość kolumn w obiekcie Macierz
+            // pętla która sprawdza ilość kolumn w obiekcie Macierz
+            for (int n = 0; n < macierzparametr.getMacierz()[i].length; n++)
             {
-                macierztymczasowa[n][i] = macierzparametr.getMacierz()[i][n]; // zamiana macierzy na macierz transponowaną
+                // zamiana macierzy na macierz transponowaną
+                macierztymczasowa[n][i] = macierzparametr.getMacierz()[i][n];
             }
         }
-        Macierz macierzTransponowana = new Macierz(macierztymczasowa);
-        return macierzTransponowana; // zwraca macierz transponowaną jako obiekt Macierz
+        Macierz macierzTransponowana = macierz(macierztymczasowa);
+        // zwraca macierz transponowaną jako obiekt Macierz
+        return macierzTransponowana;
     }
 
     /*Kod testowy

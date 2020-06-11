@@ -1,28 +1,34 @@
 package MacierzeiWektory;
 
-/**Klasa służąca odwracaniu macierzy
+/**Klasa służąca do wyznacznienia macierzy odwrotnej
  * @author Mikołaj Pater
  */
 public class MacierzOdwrotna extends Wyznacznik
 {
     /**
-     *
-     * @param macierzparametr
-     * @return zwraca odwróconą macierz wprowadzoną jako parametr
-     * @throws IllegalArgumentException w przypadku, gdy dla macierzy nie istnieje macierz odwrotna
+     * Metoda służąca do tworzenia obiektu Macierz, który jest macierzą odwrotną dla podanej macierzy
+     * @param macierzparametr obiekt Macierz dla którego wyznaczymy macierz odwrotną
+     * @return zwraca obiekt Macierz, który jest macierzą odwrotną parametru metody
+     * @throws IllegalArgumentException pojawia się, jeżeli nie da się obliczyć macierzy odwrotnej
+     * @see Macierz#macierz(double[]...)
+     * @see Macierz#getMacierz()
+     * @see Wyznacznik#wyznacznikMacierzy(Macierz)
      */
     public static Macierz macierzOdwrotna(Macierz macierzparametr)
     {
+        //warunek sprawdzający czy można wyliczyć macierz odwrotną dla danej macierzy (sprawdza czy jego wyznacznik jest zerowy)
         if (wyznacznikMacierzy(macierzparametr)==0)
         {
-
             throw new IllegalArgumentException("Z podanej macierzy nie można wyznaczyć macierzy odwrotnej!");
         }
         else
         {
+            //deklaracja kopii macierzy na podstawie parametru
             double[][] macierzkopia = macierzparametr.getMacierz();
+            //deklaracja rozmiaru parametru (macierzy)
             int rozmiar = macierzparametr.getMacierz().length;
 
+            //deklaracja pustej tablicy dwuwymiarowej o rozmiarze parametru oraz skopiowanie do niej macierzy wejściowej
             double[][] macierz = new double[rozmiar][rozmiar];
             for (int n = 0; n < rozmiar; n++)
             {
@@ -32,6 +38,7 @@ public class MacierzOdwrotna extends Wyznacznik
                 }
             }
 
+            //deklaracja macierzy jednostkowej
             double[][] macierzjednostkowa = new double[rozmiar][rozmiar];
             for (int n = 0; n < rozmiar; n++)
             {
@@ -48,44 +55,53 @@ public class MacierzOdwrotna extends Wyznacznik
                 }
             }
 
+            //deklaracja pustej tablicy dwuwymiarowej o rozmiarze macierzy wejściowej
             double[][] macierz2 = new double[rozmiar][rozmiar];
 
+            //pętla, która wykonuje tyle iteracji ile wynosi rozmiar parametru
             for (int i = 0; i < rozmiar; i++)
             {
+                //deklaracja pozycji wiersza, od którego będą wykonywane obliczenia w celu wyliczenia macierzy odwrotnej (domyślnie jest dla wartości po przekątnej)
                 int pozycja = i;
+                //deklaracja numeru wiersza do pomocy w obliczeniach
                 int row;
+                //pętla sprawdzająca dla jakiej pozycji w danej kolumnie nie ma wartości 0
                 for (int n=0; n<rozmiar; n++)
                 {
+                    //przypisanie odpowiedniej wartości dla numeru wiersza w zależności od iteracji
                     row = i + n;
+                    //warunek zabezpieczający przed wyjściem poza rozmiar tablicy
                     if (row>=rozmiar)
                     {
                         break;
                     }
+                    //warunek szukający pozycji w danej kolumnie dla którego można wykonywać obliczenia (jest niezerowy)
                     if (macierz[row][i]!=0)
                     {
                         pozycja = row;
                         break;
                     }
-                    else if (macierz[row][i]==0)
+                    //warunek dodatkowy, który zwraca wyjątek, jeżeli w danej kolumnie wszystkie wartości są 0 (czyli w zależności od wartości i, czy pozostałe wartości są zerowe)
+                    else if (macierz[row][i]==0 && row==rozmiar-1)
                     {
-                        if (row==rozmiar-1)
-                        {
-                            throw new IllegalArgumentException("Z podanej macierzy nie można wyznaczyć macierzy odwrotnej!");
-                        }
+                        throw new IllegalArgumentException("Z podanej macierzy nie można wyznaczyć macierzy odwrotnej!");
                     }
                 }
+                //warunek zamieniający wiersze jeżeli pozycja nie odpowiada wierszowi na przekątnej
                 if (pozycja!=i)
                 {
+                    //tworzenie tymczasowej tablicy jednowymiarowej przechowująca dane dla wiersza z macierzy podstawowej z odpowiedniej iteracji, a następnie zamienia odpowiednie wiersze przy jej pomocy
                     double[] tmp1 = macierz[i];
                     macierz[i] = macierz[pozycja];
                     macierz[pozycja] = tmp1;
 
+                    //tworzenie tymczasowej tablicy jednowymiarowej przechowująca dane dla wiersza z macierzy jednostkowej z odpowiedniej iteracji, a następnie zamienia odpowiednie wiersze przy jej pomocy
                     double[] tmp2 = macierzjednostkowa[i];
                     macierzjednostkowa[i] = macierzjednostkowa[pozycja];
                     macierzjednostkowa[pozycja] = tmp2;
                 }
 
-
+                //pętla tworząca kopie macierzy
                 for (int n = 0; n < rozmiar; n++)
                 {
                     for (int m = 0; m < rozmiar; m++)
@@ -94,14 +110,17 @@ public class MacierzOdwrotna extends Wyznacznik
                     }
                 }
 
+                //pętla dzieląca każdy element w danym wierszu w macierzy podstawowej przez wartość na przekątnej
                 for (int x = i; x < rozmiar; x++)
                 {
                     macierz[i][x] /= macierz2[i][i];
                 }
+                //pętla dzieląca każdy element w danym wierszu w macierzy jednostkowej przez wartość na przekątnej
                 for (int x = 0; x < rozmiar; x++)
                 {
                     macierzjednostkowa[i][x] /= macierz2[i][i];
                 }
+                //pętla wykonjąca odpowiednie obliczenia równolegle dla macierzy podstawowej i jednostkowej
                 for (int x=0; x<rozmiar; x++)
                 {
                     if (x!=i)
@@ -118,15 +137,17 @@ public class MacierzOdwrotna extends Wyznacznik
                 }
             }
 
+            //pętla służąca do zaokrąglenia wyników w macierzy odwrotnej
             for (int n = 0; n < rozmiar; n++)
             {
                 for (int m = 0; m < rozmiar; m++)
                 {
                     double wartosc = macierzjednostkowa[n][m];
-                    macierzjednostkowa[n][m]=Math.round(wartosc*1000000.0)/1000000.0;
+                    //zaokrąglenie do 9 miejsc po przecinku (ilość zer)
+                    macierzjednostkowa[n][m]=Math.round(wartosc*1000000000.0)/1000000000.0;
                 }
             }
-
+            //przypisanie macierzy odwrotnej do obiektu Macierz i zwrócenie tego wyniku
             Macierz macierzodwrotna = macierz(macierzjednostkowa);
             return macierzodwrotna;
         }

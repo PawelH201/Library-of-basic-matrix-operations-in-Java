@@ -1,26 +1,50 @@
 package MacierzeiWektory;
-/**
- * Klasa służąca do tworzenia dwuwymiarowej tablicy typu double.
- * @author Mikołaj Pater
- */
 
 import java.util.Arrays;
+/**
+ * Klasa służąca do tworzenia obiektu Macierz.
+ * @author Mikołaj Pater
+ */
+public class Macierz
+{
+    //deklaracja prywatnej tablicy dwuwymiarowej macierz
+    private double[][] macierz;
 
-public class Macierz {
-    private double[][] macierz; //deklaracja prywatnej tablicy dwuwymiarowej macierz
-
-    public double[][] getMacierz() // zwraca dwuwymiarową tablicę macierz
+    /**
+     * Metoda służąca do zwrócenia z obiektu tablicy dwuwymiarowej z jej wartościami
+     * @return tablica dwuwywamiarowa z wartościami macierzy
+     */
+    public double[][] getMacierz()
     {
         return macierz;
     }
 
-    public void setMacierz(double[][] macierz) // ustawia wartość tablicy dwuwymiarowej macierz
+    /**
+     * Metoda służąca do przypisania wartości w postaci tablicy dwuwymiarowej dla macierzy
+     * @param macierz tablica dwuwymiarowa z wartościami macierzy
+     */
+    public void setMacierz(double[][] macierz)
     {
         this.macierz = macierz;
     }
 
-    public Macierz(double[]... macierz) // konstrkutkor obiektu Macierz
+    /**
+     * Konstruktor obiektu Macierz
+     * @param macierz lista tablic z wartościami dla Macierzy (tablica dwuwymiarowa)
+     * @throws IllegalArgumentException pojawia się w przypadku podania nierównych tablic jako parametry
+     */
+    public Macierz(double[]... macierz)
     {
+        // pętla, która sprawdza każdą wpisaną tablicę
+        for (int i = 0; i < macierz.length; i++)
+        {
+            // warunek, który sprawdza czy rozmiar tablicy zgadza się z rozmiarem pierwszej tablicy (sprawdza czy wszystkie wiersze mają taką samą długość)
+            if (macierz[i].length != macierz[0].length)
+            {
+                // wyrzuca wyjątek dla złych parametrów macierzy
+                throw new IllegalArgumentException("Podano złe parametry macierzy");
+            }
+        }
         this.macierz = macierz;
     }
 
@@ -34,17 +58,22 @@ public class Macierz {
     }
 
     /**
-     * @param macierzparametr
-     * @return zwraca parametry macierz w obiekcie Macierz
-     * @throw IllegalArgumentException pojawia się w przypadku wprowadzenia złych parametrów macierzy
+     * Metoda służąca do tworzenia obiektu Macierz za pomocą listy tablic oraz sprawdzenia czy są tej samej wielkości
+     * @param macierzparametr lista tablic, z której będzie tworzony obiekt Macierz (tablica dwuwymiarowa)
+     * @return zwraca parametry w obiekcie Macierz
+     * @throws IllegalArgumentException pojawia się w przypadku wprowadzenia nierównych tablic jako parametry
+     * @see Macierz#Macierz(double[]...)
      */
-    public static Macierz macierz(double[]... macierzparametr) // deklaracja metody macierz(), która tworzy obiekt Macierz na podstawie tablicy dwuwymiarowej oraz sprawdza czy jej rozmiary pasują do macierzy
+    public static Macierz macierz(double[]... macierzparametr)
     {
-        for (int i = 0; i < macierzparametr.length; i++) // pętla, która sprawdza każdą wpisaną tablicę
+        // pętla, która sprawdza każdą wpisaną tablicę
+        for (int i = 0; i < macierzparametr.length; i++)
         {
-            if (macierzparametr[i].length != macierzparametr[0].length) // warunek, który sprawdza czy rozmiar tablicy zgadza się z rozmiarem pierwszej tablicy (sprawdza czy wszystkie wiersze mają taką samą długość)
+            // warunek, który sprawdza czy rozmiar tablicy zgadza się z rozmiarem pierwszej tablicy (sprawdza czy wszystkie wiersze mają taką samą długość)
+            if (macierzparametr[i].length != macierzparametr[0].length)
             {
-                throw new IllegalArgumentException("Podano złe parametry macierzy"); // wyrzuca wyjątek dla złych parametrów macierzy
+                // wyrzuca wyjątek dla złych parametrów macierzy
+                throw new IllegalArgumentException("Podano złe parametry macierzy");
             }
         }
         Macierz macierz = new Macierz(macierzparametr);

@@ -1,24 +1,33 @@
 package MacierzeiWektory;
+
 /** Klasa służąca do sprawdzenia czy macierz jest kwadratowa
  * @author Mikołaj Pater
  */
 public class MacierzKwadratowa extends Macierz
 {
     /**
-     * @param macierzparametr
-     * @return zwraca wartość liczbową typu boolean
+     * Metoda służąca do sprawdzenia czy dana macierz jest kwadratowa
+     * @param macierzparametr obiekt Macierz dla którego sprawdzamy czy jest w postaci macierzy kwadratowej
+     * @return zwraca wartość boolean, true jeśli jest kwadratowa, false jeśli nie jest kwadratowa
+     * @see Macierz#getMacierz()
+     * @see Macierz#macierz(double[]...)
      */
     public static boolean isMacierzKwadratowa(Macierz macierzparametr)
     {
+        //deklaracja boolean
         boolean isKwadratowa;
+        //wyciągnięcie wartości macierz
         double[][] macierz = macierzparametr.getMacierz();
+        //warunek sprawdzający czy podana macierz jest kwadratowa
         if (macierz[0].length==macierz.length)
         {
+            //przypisanie wartości true dla boolean isKwadratowa i zwrócenie jej
             isKwadratowa = true;
             return isKwadratowa;
         }
         else
         {
+            //przypisanie wartości false dla boolean isKwadratowa i zwrócenie jej
             isKwadratowa = false;
             return isKwadratowa;
         }
