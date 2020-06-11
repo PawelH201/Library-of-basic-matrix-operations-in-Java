@@ -10,6 +10,7 @@ public class IloczynMacierzy extends Macierz {
      * @throws  IllegalArgumentException w przypadku gdy wymiary podanych macierzy uniemożliwiają przeprowadzenie działania
      * (macierz pierwsza o wymiarach mXn, macierz druga nXm gdzie n,m ->naturalne)
      * @see Macierz#macierz(double[]...)
+     * @see Macierz#getMacierz()
      */
     public static Macierz iloczynMacierzy(Macierz pierwszamacierz, Macierz drugamacierz) {
 
