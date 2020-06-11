@@ -1,13 +1,15 @@
 package MacierzeiWektory;
-/**Klasa służąca do obliczania iloczynu macierzy
+/**Klasa służąca do obliczania iloczynu dwóch macierzy
  * @author Paweł Hulanicki
  */
 public class IloczynMacierzy extends Macierz {
-    /** Klasa
-     * @param pierwszamacierz
-     * @param drugamacierz
+    /** Metoda służąca obliczenia iloczynu macierzy
+     * @param pierwszamacierz pierwsza Macierz
+     * @param drugamacierz druga Macierz
      * @return zwraca obiekt typu macierz będązy iloczynem macierzy wprowadzonych jako parametr
-     * @throws  IllegalArgumentException w przypadku gdy wymiary podanych macierzy są różne
+     * @throws  IllegalArgumentException w przypadku gdy wymiary podanych macierzy uniemożliwiają przeprowadzenie działania
+     * (macierz pierwsza o wymiarach mXn, macierz druga nXm gdzie n,m ->naturalne)
+     * @see Macierz#macierz(double[]...)
      */
     public static Macierz iloczynMacierzy(Macierz pierwszamacierz, Macierz drugamacierz) {
 
