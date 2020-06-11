@@ -1,6 +1,5 @@
 import MacierzeiWektory.*;
 
-import java.awt.geom.Area;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;

@@ -2,54 +2,37 @@ package MacierzeiWektory;
 
 import java.util.Arrays;
 
-/**Klasa służąca do konstruowania obiektów typu Wektor
- * @author Paweł Hulanicki
- */
-
 public class Wektor
 {
     //deklaracja tablicy zmiennych typu double o nazwie wektor (nazwa klasy to Wektor - wielka litera)
     public double[] wektor;
 
-    /**
-     * Metoda zwracająca wartości z obiektu "Wektor"
-     * @return wartość wektora w postaci tablicy jednowymiarowej typu double[]
-     */
+    // metoda get dla klasy Wektor
     public double[] getWektor()
     {
         return wektor;
     }
 
-    /**
-     *Metoda ustawiająca wartość wektora na podaną tablicę jednoowymiarową
-     * @param wektor tablica typu double
-     */
+    // setter dla klasy Wektor
     public void setWektor(double... wektor)
     {
         this.wektor = wektor;
     }
 
-    /**
-     * Konstruktor klasy Wektor
-     * @param wektor tablica typu double
-     */
+    //konstruktor klasy
     public Wektor(double... wektor)
     {
         this.wektor = wektor;
     }
 
-    /**
-     * Metoda służąca odczytaniu wartości wektora
-     * @param wektorparametr tablica typu double
-     * @return wartość wektora w postaci tablicy jednowymiorowej
-     * @see Wektor#wektor(double...)
-     */
+    //deklaracja metody wektor, tworzy tablice ze zmiennymi double a nastepnie ja zwraca
     public static Wektor wektor(double... wektorparametr)
     {
         Wektor wektor = new Wektor(wektorparametr);
         return wektor;
     }
 
+    //metoda toString dla klasy Wektor
     @Override
     public String toString() {
         return Arrays.toString(wektor);

@@ -1,7 +1,13 @@
 package MacierzeiWektory;
-
+/** Klasa służąca do transponowania macierzy.
+ * @author Paweł Hulanicki
+ */
 public class MacierzTransponowana extends Macierz // deklaracja klasy Macierztransponowana, która dziedziczy po klasie Macierz
 {
+    /**
+     * @param macierzparametr
+     * @return zwraca macierz wprowadzoną jako parametr na której została przeprowadzona operacja transpozycji
+     */
     public static Macierz macierzTransponowana(Macierz macierzparametr) // deklaracja metody macierzTransponowana (parametr obiekt Macierz)
     {
         double[][] macierztymczasowa = new double[macierzparametr.getMacierz()[0].length][macierzparametr.getMacierz().length]; // deklaracja tymczasowej tablicy dwuwymiarowej o rozmiarach macierzy transponowanej
@@ -16,7 +22,7 @@ public class MacierzTransponowana extends Macierz // deklaracja klasy Macierztra
         return macierzTransponowana; // zwraca macierz transponowaną jako obiekt Macierz
     }
 
-    /*
+    /*Kod testowy
     public static void main(String[] args) // funkcja testowa
     {
         Macierz macierz = macierz(new double[]{123,3,2}, new double[]{9,3,222});

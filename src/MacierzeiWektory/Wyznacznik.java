@@ -1,7 +1,14 @@
 package MacierzeiWektory;
-
+/**Klasa służąca do wyznaczania wyznacznika :)
+ * @author Mikołaj Pater
+ */
 public class Wyznacznik extends MacierzKwadratowa
 {
+    /**
+     * @param macierzparametr
+     * @return zwraca wyznacznik z macierzy wporowadzonej jako parametr
+     * @throws IllegalArgumentException zwraca wyjątek w przypadku, gdy wyznacznik nie istnieje
+     */
     public static double wyznacznikMacierzy(Macierz macierzparametr)
     {
         if (isMacierzKwadratowa(macierzparametr))
@@ -113,7 +120,7 @@ public class Wyznacznik extends MacierzKwadratowa
     }
 
 
-    /*
+    /*Kod testowy
     public static void main(String args[])
     {
         Macierz macierz1 = macierz(new double[]{2,4,2}, new double[]{93,4,3}, new double[]{3,5,8});

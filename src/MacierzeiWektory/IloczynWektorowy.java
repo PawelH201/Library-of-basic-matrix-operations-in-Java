@@ -1,7 +1,16 @@
 package MacierzeiWektory;
-
+/**Klasa służąca do mnożenia wektorów
+ * @author Paweł Hulanicki
+ */
 public class IloczynWektorowy extends Wektor {
     //deklaracja metody iloczynwektorowy, obliczająca iloczyn dla wektorów w R3
+
+    /**
+     * @param pierwszy
+     * @param drugi
+     * @return zwraca wektor będący iloczynem wektorów wprowadzonych jako parametry
+     * @throw IllegalArgumentException w przypadku gdy wymiar podanych wektorów jest niepoprawny
+     */
     public static Wektor iloczynwektorowy(Wektor pierwszy, Wektor drugi) {
         //wyciągniecie tablic z obiektow Wektor
         double[] wektorpierwszy = pierwszy.getWektor();
@@ -34,14 +43,13 @@ public class IloczynWektorowy extends Wektor {
             wynik = new Wektor(w0,w1,w2);
             return wynik;
         }
-        //przypadek gdy wymiar podanych wektorow jest niepoprawny
+
         else {
-            throw new IllegalArgumentException("Sprawdz czy wektory mają długość 3 i mają odpowiednie dane!");
+                        throw new IllegalArgumentException("Sprawdz czy wektory mają długość 3 i mają odpowiednie dane!");
         }
     }
 
-    //czesc testowa programu
-    /*
+    /* Kod testowy
     public static void main(String args[]){
         //utworzenie obiektow wektor
         Wektor pierwszy = new Wektor(1,2,4);

@@ -1,7 +1,16 @@
 package MacierzeiWektory;
-
+/**Klasa służąca dodawaniu/odejomwaniu do siebie macierzy
+ * @author Jowita Walczuk
+ */
 //Klasa potomna klasy Macierz zawierająca metody sumaMacierzy, różnica Macierzy.
 public class SumaiRoznicaMacierzy extends Macierz {
+    /**
+     *
+     * @param macierz
+     * @param macierz2
+     * @return zwracana jest macierz będąca sumą macierzy podanych jako parametry
+     * @throws IllegalArgumentException wyjątek zwracany w przypadku, gdy wymiary macierzy nie są poprawne
+     */
     public static Macierz sumaMacierzy(Macierz macierz, Macierz macierz2) { //metoda służąca dodawaniu macierzy
 
         double[][] tablica1 = macierz.getMacierz();
@@ -21,7 +30,12 @@ public class SumaiRoznicaMacierzy extends Macierz {
         Macierz Wynik = new Macierz(wynik);
         return Wynik;
     }
-
+    /**
+     * @param macierz
+     * @param macierz2
+     * @return zwracana jest macierz będąca różnicą macierzy podanych jako parametry
+     * @throws IllegalArgumentException wyjątek zwracany w przypadku, gdy wymiary macierzy nie są poprawne
+     */
     public static Macierz roznicaMacierzy(Macierz macierz, Macierz macierz2) { //metoda służąca odejmowaniu macierzy
         double[][] tablica1=macierz.getMacierz();
         double[][] tablica2=macierz2.getMacierz();
@@ -40,8 +54,8 @@ public class SumaiRoznicaMacierzy extends Macierz {
         return Suma;
     }
 
-    /*
-    public static void main(String[] args) { //kod testowy
+    /*Kod testowy
+    public static void main(String[] args) {
         Macierz macierz1 = new Macierz(new double[]{1,10.2,100}, new double[]{2.02,20.02,200.02});
         Macierz macierz2 = new Macierz(new double[]{3,30,300}, new double[]{4,40,400});
         System.out.println(macierz1);

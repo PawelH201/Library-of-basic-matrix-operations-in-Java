@@ -1,7 +1,13 @@
 package MacierzeiWektory;
-
+/**Klasa służąca rozwiązywaniu równań liniowych za pomocą metody Cramera
+ * @author Paweł Hulanicki
+ */
 public class RownaniaCramer extends Wyznacznik {
-
+    /**
+     * @param macierz
+     * @return zwraca rozwiązanie układu równań wprowadzonego jako parametr
+     * @throws IllegalArgumentException wyjątek zwracany w przypadku gdy układ nie ma rozwiązań, lub wymiary macierz nie są poprawne
+     */
     public static double[] ukladRownan(Macierz macierz) {
 
         int wierszeMacierz = macierz.getMacierz().length;
@@ -48,7 +54,7 @@ public class RownaniaCramer extends Wyznacznik {
         }
     }
 
-    /*
+    /*Kod testowy
     public static void main(String[] args){
         Macierz macierz1 = macierz(new double[]{0,2,0,88}, new double[]{0,3,1,5}, new double[]{3,0,0,3});
         System.out.println(Arrays.toString(ukladRownan(macierz1)));

@@ -1,23 +1,35 @@
 package MacierzeiWektory;
-
+/**Klasa służąca dodawaniu/odejmowaniu wektorów
+ * @author Jowita Walczuk
+ */
 public class SumaiRoznicaWektorow extends Wektor {
-    public static Wektor sumaWektorow(Wektor wektor1, Wektor wektor2){
-        double[] tablica1=wektor1.getWektor();
-        double[] tablica2=wektor2.getWektor();
+    /**
+     * @param wektor1
+     * @param wektor2
+     * @return zwraca sumę wektorów wprowadzonych jako parametr
+     * @throws IllegalArgumentException w przypadku, gdy wymiary wektorów nie są poprawne
+     */
+    public static Wektor sumaWektorow(Wektor wektor1, Wektor wektor2) {
+        double[] tablica1 = wektor1.getWektor();
+        double[] tablica2 = wektor2.getWektor();
         double[] wynik = new double[tablica1.length];
 
         if (tablica1.length == tablica2.length) { //czy wektory mają takie same wymiary? -> czy operacja dodawania jest możliwa?
             for (int i = 0; i < tablica1.length; i++) {                                        //iterowanie po kolumnach
-                wynik[i]=(tablica2[i] + tablica1[i]);
+                wynik[i] = (tablica2[i] + tablica1[i]);
             }
-        }
-        else {
-        throw new IllegalArgumentException("Operacja dodawania nie jest możliwa dla różnych długości wektorów! ");
+        } else {
+            throw new IllegalArgumentException("Operacja dodawania nie jest możliwa dla różnych długości wektorów! ");
         }
         Wektor Wynik = new Wektor(wynik);
         return Wynik;
     }
-
+    /**
+     * @param wektor1
+     * @param wektor2
+     * @return zwraca różnicę wektorów wprowadzonych jako parametr
+     * @throws IllegalArgumentException w przypadku, gdy wymiary wektorów nie są poprawne
+     */
     public static Wektor roznicaWektorow(Wektor wektor1, Wektor wektor2){
         double[] tablica1=wektor1.getWektor();
         double[] tablica2=wektor2.getWektor();
@@ -35,7 +47,7 @@ public class SumaiRoznicaWektorow extends Wektor {
         return Wynik;
     }
 
-    /*
+    /*Kod testowy
     public static void main(String[] args) {
         //utworzenie wektora
         Wektor wektor1 = new Wektor(2, 3, 4, 5, 6);
