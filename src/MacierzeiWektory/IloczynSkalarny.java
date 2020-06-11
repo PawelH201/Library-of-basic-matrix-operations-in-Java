@@ -1,15 +1,27 @@
 package MacierzeiWektory;
 
+/**
+ * Klasa służąca do obliczania iloczynu wektorowego na wartościach dwóch obiektów typu Wektor
+ * @author Paweł Hulanicki
+ */
 public class IloczynSkalarny extends Wektor {
+    /**
+     * Metoda do obliczenia iloczynu wektorowego dwóch Wektorów
+     * @param pierwszy pierwszy Wektor
+     * @param drugi drugi Wektor
+     * @return Wektor z wartościami będącymi wynikiem działania
+     * @see Wektor#wektor(double...)
+     * @throws IllegalArgumentException w przypadku różnych wymiarów wektorów
+     */
     public static Wektor iloczynSkalarny(Wektor pierwszy, Wektor drugi) {
 
-        //wyciągniecie tablic z obiektow Wektor
+
         double[] wektorpierwszy = pierwszy.getWektor();
         double[] wektordrugi = drugi.getWektor();
         int dlugosc1 = wektorpierwszy.length;
         int dlugosc2 = wektordrugi.length;
 
-        //wektor w ktorym bedzie pojawial sie wynik
+
         if (dlugosc1 == dlugosc2) {
             double[] listawynik = new double[dlugosc1];
             for (int indeks = 0; indeks < dlugosc1; indeks++) {
