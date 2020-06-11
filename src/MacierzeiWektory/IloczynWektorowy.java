@@ -1,15 +1,16 @@
 package MacierzeiWektory;
-/**Klasa służąca do mnożenia wektorów
+/**Klasa służąca do mnożenia wektorowego Wektorów
  * @author Paweł Hulanicki
  */
 public class IloczynWektorowy extends Wektor {
-    //deklaracja metody iloczynwektorowy, obliczająca iloczyn dla wektorów w R3
 
-    /**
-     * @param pierwszy
-     * @param drugi
+
+    /**Metoda służąca do obliczenia iloczynu wektorowego
+     * @param pierwszy pierwszy Wektor
+     * @param drugi drugi Wektor
      * @return zwraca wektor będący iloczynem wektorów wprowadzonych jako parametry
-     * @throw IllegalArgumentException w przypadku gdy wymiar podanych wektorów jest niepoprawny
+     * @throw IllegalArgumentException w przypadku gdy którykolwiek wektor ma liczbę argumentów różną od 3
+     * @see Wektor#wektor(double...)
      */
     public static Wektor iloczynwektorowy(Wektor pierwszy, Wektor drugi) {
         //wyciągniecie tablic z obiektow Wektor
