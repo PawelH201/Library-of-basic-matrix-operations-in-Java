@@ -3,10 +3,13 @@ package MacierzeiWektory;
  * @author Paweł Hulanicki
  */
 public class RownaniaCramer extends Wyznacznik {
-    /**
-     * @param macierz
+    /**Metoda służąca rozwiązywaniu układów liniowych z zaokrągleniem do 6 miejsc po przecinku
+     * @param macierz obiekt Macierz będący macierzą dopełnioną (o wymiarach nxn+1, n - naturalne, większe od 1)
      * @return zwraca rozwiązanie układu równań wprowadzonego jako parametr
-     * @throws IllegalArgumentException wyjątek zwracany w przypadku gdy układ nie ma rozwiązań, lub wymiary macierz nie są poprawne
+     * @throws IllegalArgumentException wyjątek zwracany w przypadku gdy układ nie ma rozwiązań, lub wymiary macierzy nie są poprawne
+     * @throws ArithmeticException gdy choć jeden wyznacznik wykorzystywany przy rozwiązaniu jest równy 0
+     * @see Wyznacznik#wyznacznikMacierzy(Macierz)
+     * @see  Macierz#macierz(double[]...)
      */
     public static double[] ukladRownan(Macierz macierz) {
 
