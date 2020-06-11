@@ -1,6 +1,19 @@
 package MacierzeiWektory;
 
+/**
+ * Klasa służąca do wykonywania operacji iloczynu skalarnego na wartościach obiektów typu Wektor
+ * @author Paweł Hulanicki
+ * @see Wektor#wektor(double...)
+ */
 public class IloczynSkalarny extends Wektor {
+    /**
+     * Metoda wyliczająca iloczyn skalarny dwóch obiektów Wektor
+     * @param pierwszy pierwszy Wektor
+     * @param drugi drugi Wektor
+     * @return Wektor z wartościami będącymi wynikiem działania
+     * @throws IllegalArgumentException zwraca wyjątek gdy długośc wektorów jest różna
+     */
+
     public static Wektor iloczynSkalarny(Wektor pierwszy, Wektor drugi) {
 
         //wyciągniecie tablic z obiektow Wektor
