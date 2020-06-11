@@ -1,12 +1,12 @@
 import MacierzeiWektory.*;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 public class Kalkulator
 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         System.out.println("Kalkulator v1.0");
         System.out.println("Wciśnij enter, aby uruchomić program...");
         try
@@ -37,6 +37,7 @@ public class Kalkulator
 
             int indeks = scanner.nextInt();
 
+            //suma wektorów
             if (indeks == 1)
             {
                 System.out.println("Wybrano operację sumowania wektorów \n");
@@ -103,6 +104,7 @@ public class Kalkulator
                     {}
                 }
             }
+            //różnica
             else if (indeks == 2)
             {
                 System.out.println("Wybrano operację odejmowania wektorów \n");
@@ -270,7 +272,7 @@ public class Kalkulator
 
                     try
                     {
-                        Wektor iloczyn = IloczynWektorowy.iloczynwektorowy(wektor1, wektor2);
+                        Wektor iloczyn = IloczynWektorowy.iloczynWektorowy(wektor1, wektor2);
                         System.out.println("Iloczyn wektorowy tych wektorów wygląda następująco: \n" + iloczyn);
                     }
                     catch (IllegalArgumentException e)
@@ -407,6 +409,7 @@ public class Kalkulator
                     {}
                 }
             }
+            //różnica macierzy
             else if (indeks == 6)
             {
                 System.out.println("Wybrano operację odejmowania macierzy \n");
@@ -701,6 +704,7 @@ public class Kalkulator
                     {}
                 }
             }
+            //wyznacznik macierzy
             else if (indeks == 9)
             {
                 System.out.println("Wybrano operację liczenia wyznacznika macierzy \n");
@@ -763,6 +767,7 @@ public class Kalkulator
                     {}
                 }
             }
+            //macierz odwrotna
             else if (indeks == 10)
             {
                 System.out.println("Wybrano operację liczenia macierzy odwrotnej \n");
@@ -829,6 +834,7 @@ public class Kalkulator
                     {}
                 }
             }
+            //układ liniowy
             else if (indeks == 11)
             {
                 System.out.println("Wybrano operację liczenia układu liniowego za pomocą metody Cramera  \n");
@@ -901,15 +907,18 @@ public class Kalkulator
                     {}
                 }
             }
+            //informacje
             else if (indeks == 12)
             {
                 System.out.println("Program stworzony jako projekt na przedmiot: Podstawy Programowania 2 (PRM2T) \nAutorzy: Mikołaj Pater, Paweł Hulanicki, Jowita Walczuk");
             }
+            //zamknięcie programu
             else if (indeks == 13)
             {
                 System.out.println("Zamknięto program");
                 System.exit(0);
             }
+            //błąd
             else
             {
                 System.out.println("Podano zły indeks!");

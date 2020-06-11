@@ -1,13 +1,17 @@
 package MacierzeiWektory;
+
 /**Klasa służąca dodawaniu/odejmowaniu wektorów
  * @author Jowita Walczuk
  */
 public class SumaiRoznicaWektorow extends Wektor {
     /**
-     * @param wektor1
-     * @param wektor2
-     * @return zwraca sumę wektorów wprowadzonych jako parametr
-     * @throws IllegalArgumentException w przypadku, gdy wymiary wektorów nie są poprawne
+     * Metoda służąca do dodawania do siebie wektorów z zaokrągleniem do 9 miejsc po przecinku
+     * @param wektor1 pierwszy wektor, który jest w postaci obiektu Wektor
+     * @param wektor2 drugi wektor, który jest w postaci obiektu Wektor
+     * @return zwraca sumę wektorów jako obiekt Wektor wprowadzonych jako parametr
+     * @throws IllegalArgumentException w przypadku, gdy wymiary wektorów nie są równe
+     * @see Wektor#getWektor()
+     * @see Wektor#wektor(double...)
      */
     public static Wektor sumaWektorow(Wektor wektor1, Wektor wektor2) {
         double[] tablica1 = wektor1.getWektor();
@@ -21,14 +25,24 @@ public class SumaiRoznicaWektorow extends Wektor {
         } else {
             throw new IllegalArgumentException("Operacja dodawania nie jest możliwa dla różnych długości wektorów! ");
         }
-        Wektor Wynik = new Wektor(wynik);
+        //pętla służąca do zaokrąglenia
+        for (int i = 0; i < wynik.length; i++)
+        {
+            double wartosc = wynik[i];
+            //zaokrąglenie do 9 miejsc po przecinku (ilość zer)
+            wynik[i]=Math.round(wartosc*1000000000.0)/1000000000.0;
+        }
+        Wektor Wynik = wektor(wynik);
         return Wynik;
     }
     /**
-     * @param wektor1
-     * @param wektor2
-     * @return zwraca różnicę wektorów wprowadzonych jako parametr
-     * @throws IllegalArgumentException w przypadku, gdy wymiary wektorów nie są poprawne
+     * Metoda służąca do odejmowania do siebie wektorów z zaokrągleniem do 9 miejsc po przecinku
+     * @param wektor1 pierwszy wektor, który jest w postaci obiektu Wektor
+     * @param wektor2 drugi wektor, który jest w postaci obiektu Wektor
+     * @return zwraca różnicę wektorów jako obiekt Wektor wprowadzonych jako parametr
+     * @throws IllegalArgumentException w przypadku, gdy wymiary wektorów nie są równe
+     * @see Wektor#getWektor()
+     * @see Wektor#wektor(double...)
      */
     public static Wektor roznicaWektorow(Wektor wektor1, Wektor wektor2){
         double[] tablica1=wektor1.getWektor();
@@ -47,19 +61,19 @@ public class SumaiRoznicaWektorow extends Wektor {
         return Wynik;
     }
 
-    /*Kod testowy
+    /* Kod testu
     public static void main(String[] args) {
         //utworzenie wektora
         Wektor wektor1 = new Wektor(2, 3, 4, 5, 6);
         Wektor wektor2 = new Wektor(-2, 0, 4, -15, 1000);
         //test sprawności programu
-        System.out.println("Suma wektorów:  " + sumawektorów(wektor1, wektor2));
-        System.out.println("Różnica wektorów:  " + różnicawektorów(wektor1, wektor2));
+        System.out.println("Suma wektorów:  " + sumaWektorow(wektor1, wektor2));
+        System.out.println("Różnica wektorów:  " + roznicaWektorow(wektor1, wektor2));
         //test sprawności wyjątków
         Wektor wektor3 = new Wektor(2, 3, 4, 5, 6);
         Wektor wektor4 = new Wektor(-2, 0, 4);
-        System.out.println("Suma wektorów:  " + sumawektorów(wektor3, wektor4));
-        System.out.println("Różnica wektorów:  " + różnicawektorów(wektor3, wektor4));
+        System.out.println("Suma wektorów:  " + sumaWektorow(wektor3, wektor4));
+        System.out.println("Różnica wektorów:  " + roznicaWektorow(wektor3, wektor4));
     }
 
      */

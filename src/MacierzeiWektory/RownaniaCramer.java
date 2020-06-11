@@ -1,9 +1,10 @@
 package MacierzeiWektory;
+
 /**Klasa służąca rozwiązywaniu równań liniowych za pomocą metody Cramera
  * @author Paweł Hulanicki
  */
 public class RownaniaCramer extends Wyznacznik {
-    /**Metoda służąca rozwiązywaniu układów liniowych z zaokrągleniem do 6 miejsc po przecinku
+    /**Metoda służąca rozwiązywaniu układów liniowych z zaokrągleniem do 9 miejsc po przecinku
      * @param macierz obiekt Macierz będący macierzą dopełnioną (o wymiarach nxn+1, n - naturalne, większe od 1)
      * @return zwraca rozwiązanie układu równań wprowadzonego jako parametr
      * @throws IllegalArgumentException wyjątek zwracany w przypadku gdy układ nie ma rozwiązań, lub wymiary macierzy nie są poprawne
@@ -63,7 +64,7 @@ public class RownaniaCramer extends Wyznacznik {
             for (int i = 0; i < wynik.length; i++)
             {
                 double tmp = wynik[i];
-                wynik[i] = Math.round((tmp) * 1000000000.0)/1000000000.0; //zaokrąglenie do 6 miejsc po przecinku (ilość zer)
+                wynik[i] = Math.round((tmp) * 1000000000.0)/1000000000.0; //zaokrąglenie do 9 miejsc po przecinku (ilość zer)
             }
             return wynik;
         }

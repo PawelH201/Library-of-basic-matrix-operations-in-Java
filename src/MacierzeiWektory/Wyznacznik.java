@@ -6,7 +6,7 @@ package MacierzeiWektory;
 public class Wyznacznik extends MacierzKwadratowa
 {
     /**
-     * Metoda służąca do wyliczenia wyznacznika dla danej macierzy
+     * Metoda służąca do wyliczenia wyznacznika dla danej macierzy z zaokrągleniem do 9 miejsc po przecinku
      * @param macierzparametr obiekt Macierz dla której jest wyliczony wyznacznik
      * @return zwraca wyznacznik w postaci double macierzy wporowadzonej jako parametr
      * @throws IllegalArgumentException pojawia się, jeżeli podana macierz nie jest kwadratowa

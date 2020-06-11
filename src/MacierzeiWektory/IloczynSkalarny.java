@@ -6,11 +6,12 @@ package MacierzeiWektory;
  */
 public class IloczynSkalarny extends Wektor {
     /**
-     * Metoda do obliczenia iloczynu wektorowego dwóch Wektorów
-     * @param pierwszy pierwszy Wektor
-     * @param drugi drugi Wektor
+     * Metoda służąca do obliczenia iloczynu wektorowego dwóch Wektorów z zaokrągleniem do 9 miejsc po przecinku
+     * @param pierwszy pierwszy wektor, który jest w postaci obiektu Wektor
+     * @param drugi drugi wektor, który jest w postaci obiektu Wektor
      * @return Wektor z wartościami będącymi wynikiem działania
      * @see Wektor#wektor(double...)
+     * @see Wektor#getWektor()
      * @throws IllegalArgumentException w przypadku różnych wymiarów wektorów
      */
     public static Wektor iloczynSkalarny(Wektor pierwszy, Wektor drugi) {
@@ -33,7 +34,14 @@ public class IloczynSkalarny extends Wektor {
                 wartoscwynik = pierwszawartosc * drugawartosc;
                 listawynik[indeks] = wartoscwynik;
             }
-            Wektor rezultat = new Wektor(listawynik);
+            //pętla służąca do zaokrąglenia
+            for (int i = 0; i < dlugosc1; i++)
+            {
+                double wartosc = listawynik[i];
+                //zaokrąglenie do 9 miejsc po przecinku (ilość zer)
+                listawynik[i]=Math.round(wartosc*1000000000.0)/1000000000.0;
+            }
+            Wektor rezultat = wektor(listawynik);
             return rezultat;
         }
         else {
@@ -41,12 +49,12 @@ public class IloczynSkalarny extends Wektor {
         }
     }
 
-    /*
+    /* Kod testowy
     public static void main(String args[]) {
         //utworzenie obiektow wektor
         Wektor pierwszy = new Wektor(2, 2, 4,5,4);
         Wektor drugi = new Wektor(1, 2, 3,4,3);
-        System.out.println(iloczynskalarny(pierwszy, drugi));
+        System.out.println(iloczynSkalarny(pierwszy, drugi));
     }
 
      */

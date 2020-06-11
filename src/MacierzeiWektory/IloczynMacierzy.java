@@ -1,14 +1,14 @@
 package MacierzeiWektory;
+
 /**Klasa służąca do obliczania iloczynu dwóch macierzy
  * @author Paweł Hulanicki
  */
 public class IloczynMacierzy extends Macierz {
-    /** Metoda służąca obliczenia iloczynu macierzy
-     * @param pierwszamacierz pierwsza Macierz
-     * @param drugamacierz druga Macierz
+    /** Metoda służąca do obliczeń iloczynu macierzy z zaokrągleniem do 9 miejsc po przecinku
+     * @param pierwszamacierz pierwsza macierz, która jest w postaci obiektu Macierz
+     * @param drugamacierz druga macierz, która jest w postaci obiektu Macierz
      * @return zwraca obiekt typu macierz będązy iloczynem macierzy wprowadzonych jako parametr
-     * @throws  IllegalArgumentException w przypadku gdy wymiary podanych macierzy uniemożliwiają przeprowadzenie działania
-     * (macierz pierwsza o wymiarach mXn, macierz druga nXm gdzie n,m ->naturalne)
+     * @throws IllegalArgumentException w przypadku gdy wymiary podanych macierzy uniemożliwiają przeprowadzenie działania (macierz pierwsza o wymiarach mXn, macierz druga nXm gdzie n,m -> naturalne)
      * @see Macierz#macierz(double[]...)
      * @see Macierz#getMacierz()
      */
@@ -37,7 +37,17 @@ public class IloczynMacierzy extends Macierz {
                     wynik[kolumna][wiersz] = rezultat;
                 }
             }
-            Macierz Wynik = new Macierz(wynik);
+            //pętla służąca do zaokrąglenia wyników w macierzy odwrotnej
+            for (int n = 0; n < wynik.length; n++)
+            {
+                for (int m = 0; m < wynik[0].length; m++)
+                {
+                    double wartosc = wynik[n][m];
+                    //zaokrąglenie do 9 miejsc po przecinku (ilość zer)
+                    wynik[n][m]=Math.round(wartosc*1000000000.0)/1000000000.0;
+                }
+            }
+            Macierz Wynik = macierz(wynik);
             return Wynik;
         }
         else {
@@ -45,12 +55,12 @@ public class IloczynMacierzy extends Macierz {
         }
     }
 
-    /*
+   /* Kod testowy
     public static void main(String args[]){
         Macierz macierz1 = macierz(new double[]{13,22,34}, new double[]{41,26,33});
         Macierz macierz2 = macierz(new double[]{14,25}, new double[]{51,2}, new double[]{1,2});
-        System.out.println(iloczynmacierzy(macierz1,macierz2));
+        System.out.println(iloczynMacierzy(macierz1,macierz2));
     }
 
-     */
+    */
 }

@@ -6,7 +6,7 @@ package MacierzeiWektory;
 public class MacierzOdwrotna extends Wyznacznik
 {
     /**
-     * Metoda służąca do tworzenia obiektu Macierz, który jest macierzą odwrotną dla podanej macierzy
+     * Metoda służąca do tworzenia obiektu Macierz, który jest macierzą odwrotną dla podanej macierzy, z zaokrągleniem do 9 miejsc po przecinku
      * @param macierzparametr obiekt Macierz dla którego wyznaczymy macierz odwrotną
      * @return zwraca obiekt Macierz, który jest macierzą odwrotną parametru metody
      * @throws IllegalArgumentException pojawia się, jeżeli nie da się obliczyć macierzy odwrotnej

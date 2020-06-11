@@ -8,7 +8,6 @@ import java.util.Arrays;
  */
 public class Wektor
 {
-
     public double[] wektor;
 
     /**
@@ -41,7 +40,7 @@ public class Wektor
     /**
      * Metoda pozwalająca na odczytanie wartości wektora przy jego tworzeniu
      * @param wektorparametr tablica typu double
-     * @return tablica typu double
+     * @return obiekt Wektor z wprowadzoną tablicą jako parametr
      */
     public static Wektor wektor(double... wektorparametr)
     {
@@ -55,8 +54,7 @@ public class Wektor
         return Arrays.toString(wektor);
     }
 
-    /*
-    //czesc testowa
+    /* Kod testowy
     public static void main(String[] args)
     {
         //utworzenie wektora

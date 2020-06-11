@@ -1,18 +1,19 @@
 package MacierzeiWektory;
-/**Klasa służąca do mnożenia wektorowego Wektorów
+
+/**Klasa służąca do mnożenia wektorowego wektorów
  * @author Paweł Hulanicki
  */
 public class IloczynWektorowy extends Wektor {
 
-
-    /**Metoda służąca do obliczenia iloczynu wektorowego
-     * @param pierwszy pierwszy Wektor
-     * @param drugi drugi Wektor
-     * @return zwraca wektor będący iloczynem wektorów wprowadzonych jako parametry
-     * @throw IllegalArgumentException w przypadku gdy którykolwiek wektor ma liczbę argumentów różną od 3
+    /**Metoda służąca do obliczenia iloczynu wektorowego z zaokrągleniem do 9 miejsc po przecinku
+     * @param pierwszy pierwszy wektor, który jest w postaci obiektu Wektor
+     * @param drugi drugi wektor, który jest w postaci obiektu Wektor
+     * @return zwraca wektor będący iloczynem wektorowym wprowadzonych parametrów
+     * @throws IllegalArgumentException w przypadku gdy którykolwiek wektor ma liczbę argumentów różną od 3
      * @see Wektor#wektor(double...)
+     * @see Wektor#getWektor()
      */
-    public static Wektor iloczynwektorowy(Wektor pierwszy, Wektor drugi) {
+    public static Wektor iloczynWektorowy(Wektor pierwszy, Wektor drugi) {
         //wyciągniecie tablic z obiektow Wektor
         double[] wektorpierwszy = pierwszy.getWektor();
         double[] wektordrugi = drugi.getWektor();
@@ -40,13 +41,20 @@ public class IloczynWektorowy extends Wektor {
             w1 = a2*b0 - a0*b2;
             w2 = a0*b1 - a1*b0;
 
+            //zaokrąglenie wyniku do 9 miejsc po przecinku
+            double wartosc0 = w0;
+            w0=Math.round(wartosc0*1000000000.0)/1000000000.0;
+            double wartosc1 = w1;
+            w1=Math.round(wartosc1*1000000000.0)/1000000000.0;
+            double wartosc2 = w2;
+            w2=Math.round(wartosc2*1000000000.0)/1000000000.0;
+
             //zapis trzech zmiennych typu double do obiektu typu wektor, zwrocenie wyniku
-            wynik = new Wektor(w0,w1,w2);
+            wynik = wektor(w0,w1,w2);
             return wynik;
         }
-
         else {
-                        throw new IllegalArgumentException("Sprawdz czy wektory mają długość 3 i mają odpowiednie dane!");
+            throw new IllegalArgumentException("Sprawdz czy wektory mają długość 3 i mają odpowiednie dane!");
         }
     }
 
@@ -57,9 +65,9 @@ public class IloczynWektorowy extends Wektor {
         Wektor drugi = new Wektor(1,2,3);
         Wektor niepoprawny = new Wektor(1,2,3,4);
         //sprawdzenie poprawnosci dzialania
-        System.out.println(iloczynwektorowy(pierwszy,drugi));
+        System.out.println(iloczynWektorowy(pierwszy,drugi));
         //sprawdzenie poprawnosci wywapywania wyjatkow
-        System.out.println(iloczynwektorowy(pierwszy,niepoprawny));
+        System.out.println(iloczynWektorowy(pierwszy,niepoprawny));
     }
 
      */

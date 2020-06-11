@@ -1,15 +1,17 @@
 package MacierzeiWektory;
+
 /**Klasa służąca dodawaniu/odejomwaniu do siebie macierzy
  * @author Jowita Walczuk
  */
-//Klasa potomna klasy Macierz zawierająca metody sumaMacierzy, różnica Macierzy.
 public class SumaiRoznicaMacierzy extends Macierz {
     /**
-     *
-     * @param macierz
-     * @param macierz2
-     * @return zwracana jest macierz będąca sumą macierzy podanych jako parametry
+     * Metoda służąca do dodawania do siebie macierzy z zaokrągleniem do 9 miejsc po przecinku
+     * @param macierz macierz 1., która jest w postaci obiektu Macierz
+     * @param macierz2 macierz 2., która jest w postaci obiektu Macierz
+     * @return zwracany jest obiekt Macierz będąca sumą macierzy podanych jako parametry
      * @throws IllegalArgumentException wyjątek zwracany w przypadku, gdy wymiary macierzy nie są poprawne
+     * @see Macierz#getMacierz()
+     * @see Macierz#macierz(double[]...)
      */
     public static Macierz sumaMacierzy(Macierz macierz, Macierz macierz2) { //metoda służąca dodawaniu macierzy
 
@@ -25,16 +27,29 @@ public class SumaiRoznicaMacierzy extends Macierz {
                 }
             }
         else {
-            throw new IllegalArgumentException("Operacja dodawania nie jest możliwa dla macierzy o różnych wymiarach!!! ");
+            throw new IllegalArgumentException("Operacja dodawania nie jest możliwa dla macierzy o różnych wymiarach! ");
         }
-        Macierz Wynik = new Macierz(wynik);
+        //pętla służąca do zaokrąglenia wyników w macierzy odwrotnej
+        for (int n = 0; n < wynik.length; n++)
+        {
+            for (int m = 0; m < wynik.length; m++)
+            {
+                double wartosc = wynik[n][m];
+                //zaokrąglenie do 9 miejsc po przecinku (ilość zer)
+                wynik[n][m]=Math.round(wartosc*1000000000.0)/1000000000.0;
+            }
+        }
+        Macierz Wynik = macierz(wynik);
         return Wynik;
     }
     /**
-     * @param macierz
-     * @param macierz2
-     * @return zwracana jest macierz będąca różnicą macierzy podanych jako parametry
+     * Metoda służąca do dodawania do siebie macierzy z zaokrągleniem do 9 miejsc po przecinku
+     * @param macierz macierz 1., która jest w postaci obiektu Macierz
+     * @param macierz2 macierz 2., która jest w postaci obiektu Macierz
+     * @return zwracany jest obiekt Macierz będąca różnicą macierzy podanych jako parametry
      * @throws IllegalArgumentException wyjątek zwracany w przypadku, gdy wymiary macierzy nie są poprawne
+     * @see Macierz#getMacierz()
+     * @see Macierz#macierz(double[]...)
      */
     public static Macierz roznicaMacierzy(Macierz macierz, Macierz macierz2) { //metoda służąca odejmowaniu macierzy
         double[][] tablica1=macierz.getMacierz();
@@ -50,8 +65,18 @@ public class SumaiRoznicaMacierzy extends Macierz {
         else {
             throw new IllegalArgumentException("Operacja odejmowania nie jest możliwa dla macierzy o różnych wymiarach!!! ");
         }
-        Macierz Suma=new Macierz(wynik);
-        return Suma;
+        //pętla służąca do zaokrąglenia wyników w macierzy odwrotnej
+        for (int n = 0; n < wynik.length; n++)
+        {
+            for (int m = 0; m < wynik.length; m++)
+            {
+                double wartosc = wynik[n][m];
+                //zaokrąglenie do 9 miejsc po przecinku (ilość zer)
+                wynik[n][m]=Math.round(wartosc*1000000000.0)/1000000000.0;
+            }
+        }
+        Macierz roznica = new Macierz(wynik);
+        return roznica;
     }
 
     /*Kod testowy
