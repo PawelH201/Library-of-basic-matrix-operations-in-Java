@@ -3,11 +3,11 @@ package MacierzeiWektory;
  * @author Paweł Hulanicki
  */
 public class IloczynMacierzy extends Macierz {
-    /**
+    /** Klasa
      * @param pierwszamacierz
      * @param drugamacierz
      * @return zwraca obiekt typu macierz będązy iloczynem macierzy wprowadzonych jako parametr
-     * @throws  IllegalArgumentException w przypadku gdy wymiary podanych macierzy nieumożliwiają operacji mnożenia macierzy
+     * @throws  IllegalArgumentException w przypadku gdy wymiary podanych macierzy są różne
      */
     public static Macierz iloczynMacierzy(Macierz pierwszamacierz, Macierz drugamacierz) {
 
