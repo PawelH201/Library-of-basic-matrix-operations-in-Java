@@ -8,7 +8,7 @@ public class IloczynMacierzy extends Macierz {
      * @param pierwszamacierz pierwsza macierz, która jest w postaci obiektu Macierz
      * @param drugamacierz druga macierz, która jest w postaci obiektu Macierz
      * @return zwraca obiekt typu macierz będązy iloczynem macierzy wprowadzonych jako parametr
-     * @throws IllegalArgumentException w przypadku gdy wymiary podanych macierzy uniemożliwiają przeprowadzenie działania (macierz pierwsza o wymiarach mXn, macierz druga nXm gdzie n,m -> naturalne)
+     * @throws IllegalArgumentException w przypadku gdy wymiary podanych macierzy uniemożliwiają przeprowadzenie działania (macierz pierwsza o wymiarach mXn, macierz druga nXm)
      * @see Macierz#macierz(double[]...)
      * @see Macierz#getMacierz()
      */
